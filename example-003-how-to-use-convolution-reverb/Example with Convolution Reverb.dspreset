@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler pluginVersion="1">
+  <ui>
+    <tab>
+      <labeled-knob x="180" y="40" label="Frequency" type="float" minValue="0" maxValue="1" textColor="FF000000" value="0.4">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"
+                 translation="table" 
+                 translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+      </labeled-knob>
+      <labeled-knob x="280" y="40" label="Resonance" type="float" minValue="0.001" maxValue="5" value="0.7" textColor="FF000000">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_RESONANCE" translation="linear" translationOutputMin="0.0001" translationOutputMax="5"  />
+      </labeled-knob>
+      <label text="IR File" x="380" y="40" width="240" height="30"></label>
+      <menu x="580" y="40"  width="120" height="30" requireSelection="true" placeholderText="Choose..." value="1">
+        <option name="long hall.wav">
+          <binding type="effect" level="instrument" position="1" parameter="FX_IR_FILE" translation="fixed_value" translationValue="Samples/long hall.wav" />
+        </option>
+        <option name="ABLCR Chord Vocal.aif">
+          <binding type="effect" level="instrument" position="1" parameter="FX_IR_FILE" translation="fixed_value" translationValue="Samples/ABLCR Chord Vocal.aif" />
+        </option>
+        <option name="Amp Spring High.aif">
+          <binding type="effect" level="instrument" position="1" parameter="FX_IR_FILE" translation="fixed_value" translationValue="Samples/Amp Spring High.aif" />
+        </option>
+        <option name="Swede Plate 3.5s.aif">
+          <binding type="effect" level="instrument" position="1" parameter="FX_IR_FILE" translation="fixed_value" translationValue="Samples/Swede Plate 3.5s.aif" />
+        </option>
+      </menu>
+      <labeled-knob x="680" y="40" label="Conv Mix" type="float" minValue="0" maxValue="1" value="0.5" textColor="FF000000" >
+        <binding type="effect" level="instrument" position="1" parameter="FX_MIX" translation="linear"  />
+      </labeled-knob>
+    </tab>
+  </ui>
+  <groups decay="2" sustain="0" release="2">
+    <group>
+      <sample path="Samples/Volca Keys Poly-V127-29-F0.wav" loNote="17" hiNote="17"
+              rootNote="17"/>
+      <sample path="Samples/Volca Keys Poly-V127-30-F#0.wav" loNote="18" hiNote="18"
+              rootNote="18"/>
+      <sample path="Samples/Volca Keys Poly-V127-31-G0.wav" loNote="19" hiNote="19"
+              rootNote="19"/>
+      <sample path="Samples/Volca Keys Poly-V127-32-G#0.wav" loNote="20" hiNote="20"
+              rootNote="20"/>
+      <sample path="Samples/Volca Keys Poly-V127-33-A0.wav" loNote="21" hiNote="21"
+              rootNote="21"/>
+      <sample path="Samples/Volca Keys Poly-V127-34-A#0.wav" loNote="22" hiNote="22"
+              rootNote="22"/>
+      <sample path="Samples/Volca Keys Poly-V127-35-B0.wav" loNote="23" hiNote="23"
+              rootNote="23"/>
+      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav" loNote="24" hiNote="24"
+              rootNote="24"/>
+      <sample path="Samples/Volca Keys Poly-V127-37-C#1.wav" loNote="25" hiNote="25"
+              rootNote="25"/>
+      <sample path="Samples/Volca Keys Poly-V127-38-D1.wav" loNote="26" hiNote="26"
+              rootNote="26"/>
+      <sample path="Samples/Volca Keys Poly-V127-39-D#1.wav" loNote="27" hiNote="27"
+              rootNote="27"/>
+      <sample path="Samples/Volca Keys Poly-V127-40-E1.wav" loNote="28" hiNote="28"
+              rootNote="28"/>
+      <sample path="Samples/Volca Keys Poly-V127-41-F1.wav" loNote="21" hiNote="29"
+              rootNote="29"/>
+      <sample path="Samples/Volca Keys Poly-V127-42-F#1.wav" loNote="30" hiNote="30"
+              rootNote="30"/>
+      <sample path="Samples/Volca Keys Poly-V127-43-G1.wav" loNote="31" hiNote="31"
+              rootNote="31"/>
+      <sample path="Samples/Volca Keys Poly-V127-44-G#1.wav" loNote="32" hiNote="32"
+              rootNote="32"/>
+      <sample path="Samples/Volca Keys Poly-V127-45-A1.wav" loNote="33" hiNote="33"
+              rootNote="33"/>
+      <sample path="Samples/Volca Keys Poly-V127-46-A#1.wav" loNote="34" hiNote="34"
+              rootNote="34"/>
+      <sample path="Samples/Volca Keys Poly-V127-47-B1.wav" loNote="35" hiNote="35"
+              rootNote="35"/>
+      <sample path="Samples/Volca Keys Poly-V127-48-C2.wav" loNote="36" hiNote="36"
+              rootNote="36"/>
+      <sample path="Samples/Volca Keys Poly-V127-49-C#2.wav" loNote="37" hiNote="37"
+              rootNote="37"/>
+      <sample path="Samples/Volca Keys Poly-V127-50-D2.wav" loNote="38" hiNote="38"
+              rootNote="38"/>
+      <sample path="Samples/Volca Keys Poly-V127-51-D#2.wav" loNote="39" hiNote="39"
+              rootNote="39"/>
+      <sample path="Samples/Volca Keys Poly-V127-52-E2.wav" loNote="40" hiNote="40"
+              rootNote="40"/>
+      <sample path="Samples/Volca Keys Poly-V127-53-F2.wav" loNote="41" hiNote="41"
+              rootNote="41"/>
+      <sample path="Samples/Volca Keys Poly-V127-54-F#2.wav" loNote="42" hiNote="42"
+              rootNote="42"/>
+      <sample path="Samples/Volca Keys Poly-V127-55-G2.wav" loNote="43" hiNote="43"
+              rootNote="43"/>
+      <sample path="Samples/Volca Keys Poly-V127-56-G#2.wav" loNote="44" hiNote="44"
+              rootNote="44"/>
+      <sample path="Samples/Volca Keys Poly-V127-57-A2.wav" loNote="45" hiNote="45"
+              rootNote="45"/>
+      <sample path="Samples/Volca Keys Poly-V127-58-A#2.wav" loNote="46" hiNote="46"
+              rootNote="46"/>
+      <sample path="Samples/Volca Keys Poly-V127-59-B2.wav" loNote="47" hiNote="47"
+              rootNote="47"/>
+      <sample path="Samples/Volca Keys Poly-V127-60-C3.wav" loNote="48" hiNote="48"
+              rootNote="48"/>
+      <sample path="Samples/Volca Keys Poly-V127-61-C#3.wav" loNote="49" hiNote="49"
+              rootNote="49"/>
+      <sample path="Samples/Volca Keys Poly-V127-62-D3.wav" loNote="50" hiNote="50"
+              rootNote="50"/>
+      <sample path="Samples/Volca Keys Poly-V127-63-D#3.wav" loNote="51" hiNote="51"
+              rootNote="51"/>
+      <sample path="Samples/Volca Keys Poly-V127-64-E3.wav" loNote="52" hiNote="52"
+              rootNote="52"/>
+      <sample path="Samples/Volca Keys Poly-V127-65-F3.wav" loNote="53" hiNote="53"
+              rootNote="53"/>
+      <sample path="Samples/Volca Keys Poly-V127-66-F#3.wav" loNote="54" hiNote="54"
+              rootNote="54"/>
+      <sample path="Samples/Volca Keys Poly-V127-67-G3.wav" loNote="55" hiNote="55"
+              rootNote="55"/>
+      <sample path="Samples/Volca Keys Poly-V127-68-G#3.wav" loNote="56" hiNote="56"
+              rootNote="56"/>
+      <sample path="Samples/Volca Keys Poly-V127-69-A3.wav" loNote="57" hiNote="57"
+              rootNote="57"/>
+      <sample path="Samples/Volca Keys Poly-V127-70-A#3.wav" loNote="58" hiNote="58"
+              rootNote="58"/>
+      <sample path="Samples/Volca Keys Poly-V127-71-B3.wav" loNote="59" hiNote="59"
+              rootNote="59"/>
+      <sample path="Samples/Volca Keys Poly-V127-72-C4.wav" loNote="60" hiNote="60"
+              rootNote="60"/>
+      <sample path="Samples/Volca Keys Poly-V127-73-C#4.wav" loNote="61" hiNote="61"
+              rootNote="61"/>
+      <sample path="Samples/Volca Keys Poly-V127-74-D4.wav" loNote="62" hiNote="62"
+              rootNote="62"/>
+      <sample path="Samples/Volca Keys Poly-V127-75-D#4.wav" loNote="63" hiNote="63"
+              rootNote="63"/>
+      <sample path="Samples/Volca Keys Poly-V127-76-E4.wav" loNote="64" hiNote="64"
+              rootNote="64"/>
+      <sample path="Samples/Volca Keys Poly-V127-77-F4.wav" loNote="65" hiNote="65"
+              rootNote="65"/>
+      <sample path="Samples/Volca Keys Poly-V127-78-F#4.wav" loNote="66" hiNote="66"
+              rootNote="66"/>
+      <sample path="Samples/Volca Keys Poly-V127-79-G4.wav" loNote="67" hiNote="67"
+              rootNote="67"/>
+      <sample path="Samples/Volca Keys Poly-V127-80-G#4.wav" loNote="68" hiNote="68"
+              rootNote="68"/>
+      <sample path="Samples/Volca Keys Poly-V127-81-A4.wav" loNote="69" hiNote="69"
+              rootNote="69"/>
+      <sample path="Samples/Volca Keys Poly-V127-82-A#4.wav" loNote="70" hiNote="70"
+              rootNote="70"/>
+      <sample path="Samples/Volca Keys Poly-V127-83-B4.wav" loNote="71" hiNote="71"
+              rootNote="71"/>
+      <sample path="Samples/Volca Keys Poly-V127-84-C5.wav" loNote="72" hiNote="72"
+              rootNote="72"/>
+      <sample path="Samples/Volca Keys Poly-V127-85-C#5.wav" loNote="73" hiNote="73"
+              rootNote="73"/>
+      <sample path="Samples/Volca Keys Poly-V127-86-D5.wav" loNote="74" hiNote="74"
+              rootNote="74"/>
+      <sample path="Samples/Volca Keys Poly-V127-87-D#5.wav" loNote="75" hiNote="75"
+              rootNote="75"/>
+      <sample path="Samples/Volca Keys Poly-V127-88-E5.wav" loNote="76" hiNote="76"
+              rootNote="76"/>
+      <sample path="Samples/Volca Keys Poly-V127-89-F5.wav" loNote="77" hiNote="77"
+              rootNote="77"/>
+      <sample path="Samples/Volca Keys Poly-V127-90-F#5.wav" loNote="78" hiNote="78"
+              rootNote="78"/>
+      <sample path="Samples/Volca Keys Poly-V127-91-G5.wav" loNote="79" hiNote="79"
+              rootNote="79"/>
+      <sample path="Samples/Volca Keys Poly-V127-92-G#5.wav" loNote="80" hiNote="80"
+              rootNote="80"/>
+      <sample path="Samples/Volca Keys Poly-V127-93-A5.wav" loNote="81" hiNote="81"
+              rootNote="81"/>
+      <sample path="Samples/Volca Keys Poly-V127-94-A#5.wav" loNote="82" hiNote="82"
+              rootNote="82"/>
+      <sample path="Samples/Volca Keys Poly-V127-95-B5.wav" loNote="83" hiNote="83"
+              rootNote="83"/>
+      <sample path="Samples/Volca Keys Poly-V127-96-C6.wav" loNote="84" hiNote="84"
+              rootNote="84"/>
+      <sample path="Samples/Volca Keys Poly-V127-97-C#6.wav" loNote="85" hiNote="85"
+              rootNote="85"/>
+      <sample path="Samples/Volca Keys Poly-V127-98-D6.wav" loNote="86" hiNote="86"
+              rootNote="86"/>
+      <sample path="Samples/Volca Keys Poly-V127-99-D#6.wav" loNote="87" hiNote="87"
+              rootNote="87"/>
+      <sample path="Samples/Volca Keys Poly-V127-100-E6.wav" loNote="88" hiNote="88"
+              rootNote="88"/>
+      <sample path="Samples/Volca Keys Poly-V127-101-F6.wav" loNote="89" hiNote="89"
+              rootNote="89"/>
+      <sample path="Samples/Volca Keys Poly-V127-102-F#6.wav" loNote="90" hiNote="90"
+              rootNote="90"/>
+      <sample path="Samples/Volca Keys Poly-V127-103-G6.wav" loNote="91" hiNote="91"
+              rootNote="91"/>
+      <sample path="Samples/Volca Keys Poly-V127-104-G#6.wav" loNote="92" hiNote="92"
+              rootNote="92"/>
+      <sample path="Samples/Volca Keys Poly-V127-105-A6.wav" loNote="93" hiNote="93"
+              rootNote="93"/>
+      <sample path="Samples/Volca Keys Poly-V127-106-A#6.wav" loNote="94" hiNote="94"
+              rootNote="94"/>
+      <sample path="Samples/Volca Keys Poly-V127-107-B6.wav" loNote="95" hiNote="95"
+              rootNote="95"/>
+      <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="96" hiNote="96"
+              rootNote="96"/>
+      <sample path="Samples/Volca Keys Poly-V127-109-C#7.wav" loNote="97" hiNote="97"
+              rootNote="97"/>
+      <sample path="Samples/Volca Keys Poly-V127-110-D7.wav" loNote="98" hiNote="98"
+              rootNote="98"/>
+      <sample path="Samples/Volca Keys Poly-V127-111-D#7.wav" loNote="99" hiNote="99"
+              rootNote="99"/>
+      <sample path="Samples/Volca Keys Poly-V127-112-E7.wav" loNote="100" hiNote="100"
+              rootNote="100"/>
+      <sample path="Samples/Volca Keys Poly-V127-113-F7.wav" loNote="101" hiNote="101"
+              rootNote="101"/>
+      <sample path="Samples/Volca Keys Poly-V127-114-F#7.wav" loNote="102" hiNote="102"
+              rootNote="102"/>
+      <sample path="Samples/Volca Keys Poly-V127-115-G7.wav" loNote="103" hiNote="108"
+              rootNote="103"/>
+    </group>
+  </groups>
+  <effects>
+    <effect type="lowpass_4pl" resonance="1" frequency="500" />
+    <effect type="convolution" mix="0.5" irFile="Samples/long hall.wav" />
+  </effects>
+</DecentSampler>

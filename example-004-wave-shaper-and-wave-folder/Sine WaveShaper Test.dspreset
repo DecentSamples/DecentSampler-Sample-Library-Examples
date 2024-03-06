@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler pluginVersion="1">
+  <ui>
+    <tab>
+      <labeled-knob x="180" y="40" label="Drive" type="float" minValue="0" maxValue="1000" textColor="FF000000" value="0.5473124980926514">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_DRIVE" translation="linear"/>
+      </labeled-knob>
+      <labeled-knob x="280" y="40" label="Shape" type="float" minValue="0" maxValue="1" value="0.328312486410141" textColor="FF000000">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_SHAPE" translation="linear"/>
+      </labeled-knob>
+      <labeled-knob x="380" y="40" label="Boost" type="float" minValue="0" maxValue="1" value="0.328312486410141" textColor="FF000000">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_DRIVE_BOOST" translation="linear"/>
+      </labeled-knob>
+      <labeled-knob x="480" y="40" label="Output Lvl" type="float" minValue="0" maxValue="1" value="0.1" textColor="FF000000">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_OUTPUT_LEVEL" translation="linear"/>
+      </labeled-knob>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups>
+    <group ampVelTrack="0">
+      <sample path="Samples/Sine_45_48000.wav" loNote="0" hiNote="127" rootNote="45" loopStart="0" loopEnd="47999" loopEnabled="true" loopCrossfade="0"/>
+      <effects>
+        <effect type="wave_shaper" drive="0.5473124980926514" shape="0.328312486410141"/>
+      </effects>
+    </group>
+  </groups>
+  <effects/>
+  <midi/>
+  <modulators/>
+  <tags/>
+</DecentSampler>
