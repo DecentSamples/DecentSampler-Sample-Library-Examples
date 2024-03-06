@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<DecentSampler>
+<DecentSampler minVersion="1.8.14">
    <ui width="812" height="375" bgImage="Images/Boilerplate Skin.jpg">
     <tab name="main">
       <labeled-knob x="445" y="75" width="90" textSize="16" textColor="AA000000" 
@@ -18,7 +18,7 @@
                     label="Chorus" type="float" minValue="0.0" maxValue="1" value="0" >
         <binding type="effect" level="instrument" position="1" parameter="FX_MIX" />
       </labeled-knob>
-      <labeled-knob x="655" y="75" width="90" textSize="16" textColor="FF000000"
+      <labeled-knob x="655" y="75" width="90" textSize="16" textColor="AA000000"
                     trackForegroundColor="CC000000" trackBackgroundColor="66999999"
                     label="Tone" type="float" minValue="0" maxValue="1" value="1">
         <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"
