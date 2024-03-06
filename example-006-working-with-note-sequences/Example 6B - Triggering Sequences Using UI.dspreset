@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.11.1">
+   <ui width="812" height="375" bgImage="Images/Background.jpg">
+    <tab name="main">
+      <label x="250" y="20" width="200" height="200" textSize="30" hAlign="right" text="Triggering Note Sequences Using UI" />
+      <label x="470" y="70" width="100" height="30" textSize="14" hAlign="center" text="Sequencer:" />
+      <button x="470" y="110" width="100" height="30" style="text" parameterName="Sequencer Enabled" value="0" defaultValue="0">
+        <state name="Off">
+          <binding level="instrument" type="note_sequence" seqIndex="0" seqTriggerBehavior="off" seqPlayerIdentifier="sequence_button_1"/>
+        </state>
+        <state name="On">
+          <binding level="instrument" type="note_sequence" seqIndex="0" seqLoopMode="forward" seqTriggerBehavior="on" seqTrackMidiInputVelocity="1.0" seqPlaybackRate="4" seqTranspose="0" seqPlayerIdentifier="sequence_button_1" />
+        </state>
+      </button>
+
+      <labeled-knob x="585" y="75" width="90" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Chorus" type="float" minValue="0.0" maxValue="1" value="0" >
+        <binding type="effect" level="instrument" position="1" parameter="FX_MIX" />
+      </labeled-knob>
+      <labeled-knob x="655" y="75" width="90" textSize="16" textColor="AA000000"
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999"
+                    label="Tone" type="float" minValue="0" maxValue="1" value="1">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"
+                 translation="table" 
+                 translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+      </labeled-knob>
+      <labeled-knob x="725" y="75" width="90" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Reverb" type="percent" minValue="0" maxValue="100" 
+                    textColor="FF000000" value="50">
+        <binding type="effect" level="instrument" position="2" 
+                 parameter="FX_REVERB_WET_LEVEL" translation="linear" 
+                 translationOutputMin="0" translationOutputMax="1" />
+      </labeled-knob>
+    </tab>
+  </ui>
+  <effects>
+    <effect type="lowpass" frequency="22000.0"/>
+    <effect type="chorus"  mix="0.0" modDepth="0.2" modRate="0.2" />
+    <effect type="reverb" wetLevel="0.5"/>
+  </effects>
+  <noteSequences>
+    <sequence name="MajorArp" length="4" rate="1">
+      <note position="0" velocity="1" note="C2" length="1"/>
+      <note position="1" velocity="1" note="E2" length="1"/>
+      <note position="2" velocity="1" note="G2" length="1"/>
+      <note position="3" velocity="1" note="C3" length="1"/>
+    </sequence>
+  </noteSequences>
+  <groups attack="0.0" decay="1.0" sustain="0.0" release="1.750873208045959" ampVelTrack="0.3">
+    <group name="Triangle">
+      <sample path="Samples/PolyBrute Triangle Wave-C0-V127-WASV.wav" name="PolyBrute Triangle Wave-C0-V127-WASV" rootNote="24" loNote="12" hiNote="24" loVel="0" hiVel="127" volume="-1.26672dB" end="148089" loopEnabled="1" loopStart="4182" loopEnd="76923" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-C1-V127-OJF2.wav" name="PolyBrute Triangle Wave-C1-V127-OJF2" rootNote="36" loNote="31" hiNote="36" loVel="0" hiVel="127" volume="-6.12848dB" end="146333" loopEnabled="1" loopStart="13058" loopEnd="77154" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-C2-V127-MW79.wav" name="PolyBrute Triangle Wave-C2-V127-MW79" rootNote="48" loNote="43" hiNote="48" loVel="0" hiVel="127" volume="-7.91677dB" end="145607" loopEnabled="1" loopStart="12630" loopEnd="77692" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-C3-V127-Z5O6.wav" name="PolyBrute Triangle Wave-C3-V127-Z5O6" rootNote="60" loNote="55" hiNote="60" loVel="0" hiVel="127" volume="-8.54755dB" end="146342" loopEnabled="1" loopStart="13155" loopEnd="78650" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-C4-V127-SNGL.wav" name="PolyBrute Triangle Wave-C4-V127-SNGL" rootNote="72" loNote="67" hiNote="72" loVel="0" hiVel="127" volume="-8.87536dB" end="157313" loopEnabled="1" loopStart="24332" loopEnd="88137" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-C5-V127-124D.wav" name="PolyBrute Triangle Wave-C5-V127-124D" rootNote="84" loNote="79" hiNote="84" loVel="0" hiVel="127" volume="-9.84687dB" end="146158" loopEnabled="1" loopStart="13256" loopEnd="78569" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-C6-V127-1VCE.wav" name="PolyBrute Triangle Wave-C6-V127-1VCE" rootNote="96" loNote="91" hiNote="96" loVel="0" hiVel="127" volume="-12.5689dB" end="146081" loopEnabled="1" loopStart="9135" loopEnd="73389" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-C7-V127-X6S5.wav" name="PolyBrute Triangle Wave-C7-V127-X6S5" rootNote="108" loNote="103" hiNote="120" loVel="0" hiVel="127" volume="-13.8096dB" end="155548" loopEnabled="1" loopStart="21348" loopEnd="85415" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-F#0-V127-6DZ9.wav" name="PolyBrute Triangle Wave-F#0-V127-6DZ9" rootNote="30" loNote="25" hiNote="30" loVel="0" hiVel="127" volume="-4.11309dB" end="146112" loopEnabled="1" loopStart="11370" loopEnd="78137" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-F#1-V127-ETGZ.wav" name="PolyBrute Triangle Wave-F#1-V127-ETGZ" rootNote="42" loNote="37" hiNote="42" loVel="0" hiVel="127" volume="-7.25211dB" end="148980" loopEnabled="1" loopStart="16203" loopEnd="80015" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-F#2-V127-QC3R.wav" name="PolyBrute Triangle Wave-F#2-V127-QC3R" rootNote="54" loNote="49" hiNote="54" loVel="0" hiVel="127" volume="-8.3273dB" end="156613" loopEnabled="1" loopStart="23520" loopEnd="87450" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-F#3-V127-WBNT.wav" name="PolyBrute Triangle Wave-F#3-V127-WBNT" rootNote="66" loNote="61" hiNote="66" loVel="0" hiVel="127" volume="-8.69056dB" end="146279" loopEnabled="1" loopStart="13258" loopEnd="78044" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-F#4-V127-T7C7.wav" name="PolyBrute Triangle Wave-F#4-V127-T7C7" rootNote="78" loNote="73" hiNote="78" loVel="0" hiVel="127" volume="-9.1631dB" end="145137" loopEnabled="1" loopStart="11943" loopEnd="77782" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-F#5-V127-1KJH.wav" name="PolyBrute Triangle Wave-F#5-V127-1KJH" rootNote="90" loNote="85" hiNote="90" loVel="0" hiVel="127" volume="-11.1835dB" end="156083" loopEnabled="1" loopStart="23284" loopEnd="88914" loopCrossfade="10" loopCrossfadeMode="linear"/>
+      <sample path="Samples/PolyBrute Triangle Wave-F#6-V127-3J94.wav" name="PolyBrute Triangle Wave-F#6-V127-3J94" rootNote="102" loNote="97" hiNote="102" loVel="0" hiVel="127" volume="-13.359dB" end="145418" loopEnabled="1" loopStart="13210" loopEnd="77698" loopCrossfade="10" loopCrossfadeMode="linear"/>
+    </group>
+  </groups>
+</DecentSampler>
