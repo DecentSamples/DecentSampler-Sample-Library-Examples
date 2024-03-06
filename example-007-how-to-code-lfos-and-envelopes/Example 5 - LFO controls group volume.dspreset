@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecentSampler minVersion="1.6.0">
+  <ui width="812" height="375">
+    <tab name="main">
+      <labeled-knob x="585" y="75" width="90" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="LFO Depth" type="float" minValue="0.0" maxValue="1" value="1" >
+        <binding level="instrument" type="modulator" position="0" parameter="MOD_AMOUNT" />
+      </labeled-knob>
+      <labeled-knob x="655" y="75" width="90" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="LFO Rate" type="float" minValue="0.0" maxValue="10" value="1" >
+        <binding level="instrument" type="modulator" position="0" parameter="FREQUENCY" />
+      </labeled-knob>
+    </tab>
+  </ui>
+  <groups attack="0.000" decay="25" sustain="1.0" release="0.430" volume="-3dB" >
+    <group ampVelTrack="0.0">
+      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav"  loNote="24" hiNote="36"  rootNote="36" />
+      <sample path="Samples/Volca Keys Poly-V127-48-C2.wav"  loNote="37" hiNote="48"  rootNote="48" />
+      <sample path="Samples/Volca Keys Poly-V127-60-C3.wav"  loNote="49" hiNote="60"  rootNote="60" />
+      <sample path="Samples/Volca Keys Poly-V127-72-C4.wav"  loNote="61" hiNote="72"  rootNote="72" />
+      <sample path="Samples/Volca Keys Poly-V127-84-C5.wav"  loNote="73" hiNote="84"  rootNote="84" />
+      <sample path="Samples/Volca Keys Poly-V127-96-C6.wav"  loNote="85" hiNote="96"  rootNote="96" />
+      <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108" />
+    </group>
+  </groups>
+  <effects>
+    <effect type="lowpass" frequency="10000.0"/>
+    <effect type="gain" level="0.5"/>
+    <effect type="chorus"  mix="0.5" modDepth="0.2" modRate="0.2" />
+    <effect type="reverb" wetLevel="0.5"/>
+  </effects>
+  <modulators>
+    <lfo shape="sine" frequency="2" modAmount="1.0">
+      <binding type="amp" level="group" position="0" parameter="AMP_VOLUME" modBehavior="multiply" translation="linear" translationOutputMin="0" translationOutputMax="1"  />
+    </lfo>
+  </modulators>
+</DecentSampler>

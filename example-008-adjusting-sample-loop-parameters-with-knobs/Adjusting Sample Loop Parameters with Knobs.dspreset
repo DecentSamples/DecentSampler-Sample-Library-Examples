@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler pluginVersion="1">
+  <ui>
+    <tab>
+      <label text="Adjusting Sample Loop Parameters with Knobs " x="0" y="30" width="520" height="60" textSize="24" ></label>
+      <labeled-knob x="445" y="75" width="90" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Start" type="integer" minValue="0" maxValue="24000" value="0" >
+        <binding type="general" level="group" position="0" parameter="SAMPLE_START" />
+      </labeled-knob>
+      <labeled-knob x="515" y="75" width="90" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="End" type="float" minValue="0.0" maxValue="24000" value="24000" >
+        <binding type="general" level="group" position="0" parameter="SAMPLE_END" />
+      </labeled-knob>
+      <labeled-knob x="585" y="75" width="90" textSize="16" textColor="AA000000" 
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
+                    label="Loop Start" type="float" minValue="0.0" maxValue="24000" value="0" >
+        <binding type="general" level="group" position="0" parameter="LOOP_START" />
+      </labeled-knob>
+      <labeled-knob x="655" y="75" width="90" textSize="16" textColor="FF000000"
+                    trackForegroundColor="CC000000" trackBackgroundColor="66999999"
+                    label="Loop End" type="float" minValue="0" maxValue="24000" value="24000">
+        <binding type="general" level="group" position="0" parameter="LOOP_END" />
+      </labeled-knob>
+    </tab>
+  </ui>
+  <groups pitchKeyTrack="0" ampVelTrack="0" playbackMode="memory">
+    <group>
+      <sample path="Samples/Three.wav" volume="4" loopEnabled="true" />
+    </group>
+  </groups>
+</DecentSampler>

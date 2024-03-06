@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecentSampler minVersion="1.6.0">
+  <ui>
+    <tab>
+      <labeled-knob x="000" y="40"  width="120" textSize="16" textColor="99000000" trackForegroundColor="AA000000" trackBackgroundColor="66FFFFFF" label="Attack" type="float" minValue="0.001" maxValue="10.0" value="1" >
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_ATTACK" />
+      </labeled-knob>
+      <labeled-knob x="100" y="40"  width="120" textSize="16" textColor="99000000" trackForegroundColor="AA000000" trackBackgroundColor="66FFFFFF" label="Attack Curve" type="float" minValue="-100" maxValue="100" value="-100" >
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_ATTACK_CURVE" />
+      </labeled-knob>
+      <labeled-knob x="200" y="40"  width="120" textSize="16" textColor="99000000" trackForegroundColor="AA000000" trackBackgroundColor="66FFFFFF" label="Decay" type="float" minValue="0.001" maxValue="10.0" value="1" >
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_DECAY" />
+      </labeled-knob>
+      <labeled-knob x="300" y="40"  width="120" textSize="16" textColor="99000000" trackForegroundColor="AA000000" trackBackgroundColor="66FFFFFF" label="Decay Curve" type="float" minValue="-100" maxValue="100" value="100" >
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_DECAY_CURVE" />
+      </labeled-knob>
+      <labeled-knob x="400" y="40"  width="120" textSize="16" textColor="99000000" trackForegroundColor="AA000000" trackBackgroundColor="66FFFFFF" label="Sustain" type="float" minValue="0.0" maxValue="1.0" value="1" >
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_SUSTAIN" />
+      </labeled-knob>
+
+      <labeled-knob x="500" y="40"  width="120" textSize="16" textColor="99000000" trackForegroundColor="AA000000" trackBackgroundColor="66FFFFFF" label="Release" type="float" minValue="0.001" maxValue="10.0" value="1" >
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_RELEASE" />
+      </labeled-knob>
+      <labeled-knob x="600" y="40"  width="120" textSize="16" textColor="99000000" trackForegroundColor="AA000000" trackBackgroundColor="66FFFFFF" label="Rel Curve" type="float" minValue="-100" maxValue="100" value="100" >
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_RELEASE_CURVE" />
+      </labeled-knob>
+    </tab>
+  </ui>
+
+  <groups attack="0.000" decay="25" sustain="1.0" release="0.430" volume="-3dB" >
+    <group ampVelTrack="0.0">
+      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav"  loNote="24" hiNote="36"  rootNote="36" />
+      <sample path="Samples/Volca Keys Poly-V127-48-C2.wav"  loNote="37" hiNote="48"  rootNote="48" />
+      <sample path="Samples/Volca Keys Poly-V127-60-C3.wav"  loNote="49" hiNote="60"  rootNote="60" />
+      <sample path="Samples/Volca Keys Poly-V127-72-C4.wav"  loNote="61" hiNote="72"  rootNote="72" />
+      <sample path="Samples/Volca Keys Poly-V127-84-C5.wav"  loNote="73" hiNote="84"  rootNote="84" />
+      <sample path="Samples/Volca Keys Poly-V127-96-C6.wav"  loNote="85" hiNote="96"  rootNote="96" />
+      <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108" />
+      <effects>
+        <effect type="lowpass" frequency="22000.0"/>
+      </effects>
+    </group>
+  </groups>
+  <modulators>
+    <envelope attack="1" decay="0.5" sustain="0" release="0.5" modAmount="1" scope="voice">
+      <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_FILTER_FREQUENCY" modBehavior="set" translation="table" translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"  />
+    </envelope>
+  </modulators>
+</DecentSampler>
