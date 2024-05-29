@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.11.12">
+  <ui bgImage="background.png" width="812" height="375" layoutMode="relative" bgMode="top_left">
+    <tab name="main">
+      <xyPad x="10" y="10" width="300" height="195" parameterName="Pad" xValue="0.5576778054237366" yValue="0.4821614623069763" bgColor="77FFCC00" markerFillColor="FFFFFFFF" outlineColor="77FFFFFFF">
+        <x>
+          <binding type="amp" level="group" groupIndex="0" parameter="AMP_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+          <binding type="amp" level="group" groupIndex="1" parameter="AMP_VOLUME" translation="linear" translationOutputMin="1" translationOutputMax="0"/>
+        </x>
+        <y>
+          <binding type="effect" level="instrument" effectIndex="0" parameter="FX_FILTER_FREQUENCY" translation="table" translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+        </y>
+      </xyPad>
+      <labeled-knob x="380" y="40" label="Delay Time" type="float" minValue="0" maxValue="5" value="0.5">
+        <binding type="effect" level="instrument" position="1" parameter="FX_DELAY_TIME" translation="linear"/>
+      </labeled-knob>
+      <labeled-knob x="480" y="40" label="Feedback" type="float" minValue="0" maxValue="1" value="0.239999994635582">
+        <binding type="effect" level="instrument" position="1" parameter="FX_FEEDBACK" translation="linear"/>
+      </labeled-knob>
+      <labeled-knob x="580" y="40" label="Stereo Offset" type="float" minValue="0" maxValue="1" value="0.009999999776482582">
+        <binding type="effect" level="instrument" position="1" parameter="FX_STEREO_OFFSET" translation="linear"/>
+      </labeled-knob>
+      <labeled-knob x="680" y="40" label="Wet Level" type="float" minValue="0" maxValue="1" value="0.119999997317791">
+        <binding type="effect" level="instrument" position="1" parameter="FX_WET_LEVEL" translation="linear"/>
+      </labeled-knob>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups attack="0.000" decay="25" sustain="1.0" release="0.430" volume="1.0">
+    <group ampVelTrack="0.0" groupTuning="" modVolume="0.5576778054237366">
+      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
+      <sample path="Samples/Volca Keys Poly-V127-48-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
+      <sample path="Samples/Volca Keys Poly-V127-60-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
+      <sample path="Samples/Volca Keys Poly-V127-72-C4.wav" loNote="61" hiNote="72" rootNote="72"/>
+      <sample path="Samples/Volca Keys Poly-V127-84-C5.wav" loNote="73" hiNote="84" rootNote="84"/>
+      <sample path="Samples/Volca Keys Poly-V127-96-C6.wav" loNote="85" hiNote="96" rootNote="96"/>
+      <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
+      <effects/>
+    </group>
+    <group ampVelTrack="0.0" groupTuning="" modVolume="0.4423221945762634">
+      <sample path="Samples/Volca Keys Square-V127-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
+      <sample path="Samples/Volca Keys Square-V127-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
+      <sample path="Samples/Volca Keys Square-V127-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
+      <sample path="Samples/Volca Keys Square-V127-C4.wav" loNote="61" hiNote="72" rootNote="72"/>
+      <sample path="Samples/Volca Keys Square-V127-C5.wav" loNote="73" hiNote="84" rootNote="84"/>
+      <sample path="Samples/Volca Keys Square-V127-C6.wav" loNote="85" hiNote="96" rootNote="96"/>
+      <sample path="Samples/Volca Keys Square-V127-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
+      <effects/>
+    </group>
+  </groups>
+  <effects>
+    <effect type="lowpass" frequency="984.0494980841576"/>
+    <effect type="delay" delayTime="0.5" feedback="0.239999994635582" stereoOffset="0.009999999776482582" wetLevel="0.119999997317791"/>
+  </effects>
+  <midi>
+    <cc number="1">
+      <binding level="ui" type="control" parameter="VALUE" position="3" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+    </cc>
+  </midi>
+  <tags/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>
