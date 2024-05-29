@@ -13,4 +13,4 @@ The full documentation for DecentSampler can always be found [here](https://www.
 - Example 6: How to use note sequences. Read more here: https://decentsampler-developers-guide.readthedocs.io/en/latest/topic-how-to-use-note-sequences.html
 - Example 7: How to code LFOs and Envelopes. Read more here: https://www.decentsamples.com/2022/08/19/how-to-add-lfos-and-extra-envelopes-to-your-decent-sampler-instruments/?swcfpc=1
 - Example 8: Adjusting sample loop parameters with knobs
-- Example 9: How to use the XY Pad UI control
+- Example 9: How to use the XY Pad UI control. Read more here: https://www.decentsamples.com/2024/05/29/sample-creators-heres-how-to-use-the-new-xy-pad-ui-control/
