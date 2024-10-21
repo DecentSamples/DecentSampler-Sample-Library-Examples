@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.12.0">
+  <ui>
+    <tab>
+      <labeled-knob x="180" y="40" label="Group Out1 Vol" type="float" minValue="0" maxValue="1" value="1" textColor="FF000000">
+        <binding type="amp" level="group" position="0" parameter="OUTPUT_1_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+      <labeled-knob x="280" y="40" label="Group Out2 Vol" type="float" minValue="0.0" maxValue="1" value="0.5" textColor="FF000000">
+        <binding type="amp" level="group" position="0" parameter="OUTPUT_2_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+      <labeled-knob x="380" y="40" label="Bus 1 Vol." type="float" minValue="0" maxValue="1" value="22000.0" textColor="FF000000">
+        <binding type="amp" level="bus" position="0" parameter="BUS_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+       </labeled-knob>
+      <labeled-knob x="480" y="40" label="Bus 1 Out Lvl" type="float" minValue="0.0" maxValue="1" value="1" textColor="FF000000">
+        <binding type="amp" level="bus" position="0" parameter="OUTPUT_1_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+      <labeled-knob x="580" y="40" label="Bus 1 Reverb Mix" type="float" minValue="0.0" maxValue="1" value="22000.0" textColor="FF000000">
+        <binding type="effect" level="bus" busIndex="0" effectIndex="0" parameter="FX_REVERB_WET_LEVEL" translation="linear"/>
+      </labeled-knob>
+    </tab>
+    <keyboard/>
+  </ui>
+  <buses>
+    <!-- This is the reverb send bus -->
+    <bus busVolume="1" output1Target="MAIN_OUTPUT" output1Volume="1">
+      <effects>
+        <!-- Since this is a second bus, we want the reverb wetLevel to stay at 1. We will vary the amount reverb by changing the output2Volume on the group below. -->
+        <effect type="reverb" wetLevel="1"/>
+      </effects>
+    </bus>
+  </buses>
+  <groups ampVelTrack="0" volume="0.7286810874938965">
+    <!-- Notice that we are sending audio to both the main output, and to BUS_1, which is the reverb bus. -->
+    <group output1Target="MAIN_OUTPUT" output1Volume="0.0" output2Target="BUS_1" output2Volume="0.1999999955296516">
+      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
+        <sample path="Samples/Volca Keys Poly-V127-48-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
+        <sample path="Samples/Volca Keys Poly-V127-60-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
+        <sample path="Samples/Volca Keys Poly-V127-72-C4.wav" loNote="61" hiNote="72" rootNote="72"/>
+        <sample path="Samples/Volca Keys Poly-V127-84-C5.wav" loNote="73" hiNote="84" rootNote="84"/>
+        <sample path="Samples/Volca Keys Poly-V127-96-C6.wav" loNote="85" hiNote="96" rootNote="96"/>
+        <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
+      <effects/>
+    </group>
+  </groups>
+  <effects/>
+  <tags/>
+  <midi/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>

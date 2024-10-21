@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.12.0">
+  <ui>
+     <tab>
+        <label text="In this example, we are using three audio outputs. Both groups get sent to the main output, but then we also send the output of group 0 to AUX_STEREO_OUTPUT_1, and we send the output of group 1 to AUX_STEREO_OUTPUT_2." textSize="20" x="10" y="10" width="800" height="100" hAlign="left" />
+     </tab>   
+  </ui>
+  <groups ampVelTrack="0">
+    <group output1Target="MAIN_OUTPUT" output1Volume="1" output2Target="AUX_STEREO_OUTPUT_1" output2Volume="1">
+        <sample path="Samples/Volca Keys Poly-V127-36-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
+        <sample path="Samples/Volca Keys Poly-V127-48-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
+        <sample path="Samples/Volca Keys Poly-V127-60-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
+        <sample path="Samples/Volca Keys Poly-V127-72-C4.wav" loNote="61" hiNote="72" rootNote="72"/>
+        <sample path="Samples/Volca Keys Poly-V127-84-C5.wav" loNote="73" hiNote="84" rootNote="84"/>
+        <sample path="Samples/Volca Keys Poly-V127-96-C6.wav" loNote="85" hiNote="96" rootNote="96"/>
+        <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
+        <effects/>
+    </group>
+    <group output1Target="MAIN_OUTPUT" output1Volume="1" output2Target="AUX_STEREO_OUTPUT_2" output2Volume="1">
+        <sample path="Samples/Volca Keys Square-V127-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
+        <sample path="Samples/Volca Keys Square-V127-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
+        <sample path="Samples/Volca Keys Square-V127-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
+        <sample path="Samples/Volca Keys Square-V127-C4.wav" loNote="61" hiNote="72" rootNote="72"/>
+        <sample path="Samples/Volca Keys Square-V127-C5.wav" loNote="73" hiNote="84" rootNote="84"/>
+        <sample path="Samples/Volca Keys Square-V127-C6.wav" loNote="85" hiNote="96" rootNote="96"/>
+        <sample path="Samples/Volca Keys Square-V127-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
+        <effects/>
+      </group>
+  </groups>
+  <effects />
+</DecentSampler>
