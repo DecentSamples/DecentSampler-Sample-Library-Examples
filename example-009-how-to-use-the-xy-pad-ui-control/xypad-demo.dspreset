@@ -3,7 +3,7 @@
 <DecentSampler minVersion="1.11.12">
   <ui bgImage="background.png" width="812" height="375" layoutMode="relative" bgMode="top_left">
     <tab name="main">
-      <xyPad x="10" y="10" width="300" height="195" parameterName="Pad" xValue="0.5576778054237366" yValue="0.4821614623069763" bgColor="77FFCC00" markerFillColor="FFFFFFFF" outlineColor="77FFFFFFF">
+      <xyPad x="10" y="10" width="300" height="195" parameterName="Pad" xValue="0.5576778054237366" yValue="0.4821614623069763" bgColor="77FFCC00" markerFillColor="FFFFFFFF" outlineColor="77FFFFFFF" tooltip="XY Pad tooltip">
         <x>
           <binding type="amp" level="group" groupIndex="0" parameter="AMP_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
           <binding type="amp" level="group" groupIndex="1" parameter="AMP_VOLUME" translation="linear" translationOutputMin="1" translationOutputMax="0"/>
