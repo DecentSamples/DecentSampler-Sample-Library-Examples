@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler>
+  <ui bgColor="FFADD8E6">
+    <tab>
+      <multiFrameImage x="450" y="80" width="64" height="64" path="Images/AnimationDemo128.png" numFrames="31" sourceFormat="vertical_image_strip"frameRate="24" playbackMode="forward_loop"/>
+      <label x="275" y="50" height="30" text="Playback Mode" textColor="FF000000" textSize="16" />
+      <menu x="280" y="80" width="100" height="30">
+        <option name="Forward Loop">
+            <binding type="control" level="ui" position="0" parameter="PLAYBACK_MODE" translation="fixed_value" translationValue="forward_loop"/>
+        </option>
+        <option name="Forward Once">
+            <binding type="control" level="ui" position="0" parameter="PLAYBACK_MODE" translation="fixed_value" translationValue="forward_once"/>
+        </option>
+        <option name="Reverse Loop">
+            <binding type="control" level="ui" position="0" parameter="PLAYBACK_MODE" translation="fixed_value" translationValue="reverse_loop"/>
+        </option>
+        <option name="Reverse Once">
+            <binding type="control" level="ui" position="0" parameter="PLAYBACK_MODE" translation="fixed_value" translationValue="reverse_once"/>
+        </option>
+        <option name="Ping Pong Loop">
+            <binding type="control" level="ui" position="0" parameter="PLAYBACK_MODE" translation="fixed_value" translationValue="ping_pong_loop"/>
+        </option>
+        <option name="Stopped">
+            <binding type="control" level="ui" position="0" parameter="PLAYBACK_MODE" translation="fixed_value" translationValue="stopped"/>
+        </option>
+        </menu>
+    </tab>
+  </ui>
+</DecentSampler>

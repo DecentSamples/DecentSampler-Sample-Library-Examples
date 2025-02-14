@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler pluginVersion="1">
+  <ui bgColor="FFADD8E6">
+    <tab>
+      <multiFrameImage x="350" y="80" width="64" height="64"  path="Images/AnimationDemo128.png" numFrames="31" sourceFormat="vertical_image_strip" frameRate="24" playbackMode="forward_loop"/>
+    </tab>
+  </ui>
+</DecentSampler>

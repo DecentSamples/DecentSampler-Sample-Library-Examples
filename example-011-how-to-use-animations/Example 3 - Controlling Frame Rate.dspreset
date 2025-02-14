@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler>
+  <ui bgColor="FFADD8E6">
+    <tab>
+      <multiFrameImage x="450" y="80" width="64" height="64" path="Images/AnimationDemo128.png" numFrames="31" imageStripOrientaton="vertical" frameRate="24" playbackMode="forward_loop"/>
+      <labeled-knob x="280" y="50" label="Frame Rate" type="integer" minValue="1" maxValue="24" value="24" textColor="FF000000" value="24">
+        <binding type="control" level="ui" position="0" parameter="FRAME_RATE" translation="linear" translationOutputMin="1" translationOutputMax="24"  />
+      </labeled-knob>
+    </tab>
+  </ui>
+</DecentSampler>
