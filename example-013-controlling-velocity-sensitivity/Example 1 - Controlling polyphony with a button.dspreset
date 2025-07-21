@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler pluginVersion="1">
+  <ui>
+    <tab>
+      <label text="Polyphony" x="330" y="30" width="120" height="30" textSize="24"/>
+      <button x="350" y="70" width="120" height="40" style="text" value="0">
+        <state name="Mono">
+          <binding type="general" level="tag" tags="all" parameter="POLYPHONY" translation="fixed_value" translationValue="1"/>
+        </state>
+        <state name="Poly">
+          <binding type="general" level="tag" tags="all" parameter="POLYPHONY" translation="fixed_value" translationValue="6"/>
+        </state>
+      </button>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups>
+    <group ampVelTrack="0.0" tags="all" enabled="1">
+      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
+      <sample path="Samples/Volca Keys Poly-V127-48-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
+      <sample path="Samples/Volca Keys Poly-V127-60-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
+      <sample path="Samples/Volca Keys Poly-V127-72-C4.wav" loNote="61" hiNote="72" rootNote="72"/>
+      <sample path="Samples/Volca Keys Poly-V127-84-C5.wav" loNote="73" hiNote="84" rootNote="84"/>
+      <sample path="Samples/Volca Keys Poly-V127-96-C6.wav" loNote="85" hiNote="96" rootNote="96"/>
+      <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
+      <effects>
+        <effect type="lowpass" frequency="5000"/>
+        <effect type="gain" level="0.5"/>
+      </effects>
+    </group>
+  </groups>
+  <tags>
+    <tag name="all" volume="1.0" polyphony="1"/>
+  </tags>
+  <effects/>
+  <buses/>
+  <midi/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>

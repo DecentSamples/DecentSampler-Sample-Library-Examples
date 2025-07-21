@@ -37,14 +37,22 @@
   </ui>
   <groups attack="0.000" decay="25" sustain="1.0" release="0.430" volume="-3dB" >
     <group ampVelTrack="0.0">
-      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
-        <sample path="Samples/Volca Keys Poly-V127-48-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
-        <sample path="Samples/Volca Keys Poly-V127-60-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
-        <sample path="Samples/Volca Keys Poly-V127-72-C4.wav" loNote="61" hiNote="72" rootNote="72"/>
-        <sample path="Samples/Volca Keys Poly-V127-84-C5.wav" loNote="73" hiNote="84" rootNote="84"/>
-        <sample path="Samples/Volca Keys Poly-V127-96-C6.wav" loNote="85" hiNote="96" rootNote="96"/>
-        <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
-        <effects>
+      <sample path="Samples/Volca Keys Poly-V127-30-F#0.wav"  loNote="24" hiNote="30" rootNote="30" />
+      <sample path="Samples/Volca Keys Poly-V127-36-C1.wav"   loNote="31" hiNote="36" rootNote="36"/>
+      <sample path="Samples/Volca Keys Poly-V127-42-F#1.wav"  loNote="37" hiNote="42" rootNote="42" />
+      <sample path="Samples/Volca Keys Poly-V127-48-C2.wav"   loNote="43" hiNote="48" rootNote="48"/>
+      <sample path="Samples/Volca Keys Poly-V127-54-F#2.wav"  loNote="49" hiNote="54" rootNote="54" />
+      <sample path="Samples/Volca Keys Poly-V127-60-C3.wav"   loNote="55" hiNote="60" rootNote="60"/>
+      <sample path="Samples/Volca Keys Poly-V127-66-F#3.wav"  loNote="61" hiNote="66" rootNote="66" />
+      <sample path="Samples/Volca Keys Poly-V127-72-C4.wav"   loNote="67" hiNote="72" rootNote="72"/>
+      <sample path="Samples/Volca Keys Poly-V127-78-F#4.wav"  loNote="73" hiNote="78" rootNote="78" />
+      <sample path="Samples/Volca Keys Poly-V127-84-C5.wav"   loNote="79" hiNote="84" rootNote="84"/>
+      <sample path="Samples/Volca Keys Poly-V127-90-F#5.wav"  loNote="85" hiNote="90" rootNote="90" />
+      <sample path="Samples/Volca Keys Poly-V127-96-C6.wav"   loNote="91" hiNote="96" rootNote="96"/>
+      <sample path="Samples/Volca Keys Poly-V127-102-F#6.wav" loNote="97" hiNote="102" rootNote="102" />
+      <sample path="Samples/Volca Keys Poly-V127-108-C7.wav"  loNote="103" hiNote="108" rootNote="108"/>
+      <sample path="Samples/Volca Keys Poly-V127-114-F#7.wav" loNote="109" hiNote="114" rootNote="114" />
+      <effects>
         <effect type="lowpass" frequency="60.0"/>
         <effect type="gain" level="0.5"/>
       </effects>
@@ -55,13 +63,13 @@
     <effect type="reverb" wetLevel="0.5"/>
   </effects>
   <modulators>
-    <mpeTimbre modAmount="0.5" scope="voice">
+    <mpeTimbre scope="voice" fallingSmoothingTime="20" risingSmoothingTime="20">
       <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_FILTER_FREQUENCY" 
         modBehavior="add"
         translation="table" 
-        translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"  />
+        translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000" />
     </mpeTimbre>
-    <mpePressure modAmount="0.5" scope="voice">
+    <mpePressure scope="voice" fallingSmoothingTime="20" risingSmoothingTime="20">
       <binding type="amp" level="group" groupIndex="0" effectIndex="0" parameter="AMP_VOLUME" 
         modBehavior="set"
         translation="linear"

@@ -49,7 +49,7 @@
     <effect type="reverb" wetLevel="0.5"/>
   </effects>
   <modulators>
-    <mpeTimbre modAmount="1" scope="voice">
+    <mpeTimbre scope="voice" fallingSmoothingTime="20" risingSmoothingTime="20" >
       <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_FILTER_FREQUENCY" 
         modBehavior="set"
         translation="table" 
@@ -59,7 +59,7 @@
         translation="table" 
         translationTable="0,0;0.6,0;0.65,75;0.7,225;0.75,550;0.95,1900;1.01,2050"/>
     </mpeTimbre>
-    <mpePressure modAmount="0.5" scope="voice">
+    <mpePressure scope="voice" fallingSmoothingTime="20" risingSmoothingTime="20" >
       <binding type="amp" level="group" groupIndex="0" effectIndex="0" parameter="AMP_VOLUME" 
         modBehavior="set"
         translation="linear"
