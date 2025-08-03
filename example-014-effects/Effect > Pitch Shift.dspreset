@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.13.3">
+  <ui>
+    <tab>
+      <labeled-knob x="375" y="75" width="90" textSize="16" textColor="AA000000" trackForegroundColor="CC000000" trackBackgroundColor="66999999" label="Pitch Shift" type="float" minValue="-24.0" maxValue="24.0" value="0">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_PITCH_SHIFT"/>
+      </labeled-knob>
+      <labeled-knob x="445" y="75" width="90" textSize="16" textColor="AA000000" trackForegroundColor="CC000000" trackBackgroundColor="66999999" label="Mix" type="float" minValue="0.0" maxValue="1.0" value="1">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_MIX"/>
+      </labeled-knob>
+      <labeled-knob x="515" y="75" width="90" textSize="16" textColor="AA000000" trackForegroundColor="CC000000" trackBackgroundColor="66999999" label="Sustain" type="float" minValue="0.0" maxValue="1.0" value="0.0">
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_SUSTAIN"/>
+      </labeled-knob>
+      
+      
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups attack="0.000" decay="25" sustain="1.0" release="0.430" ampVelTrack="0.5">
+    <group>
+      <sample loNote="21" hiNote="21"  rootNote="21"  path="Samples/DefaultPiano-21.aif" />
+      <sample loNote="22" hiNote="33"  rootNote="33"  path="Samples/DefaultPiano-33.aif" />
+      <sample loNote="34" hiNote="45"  rootNote="45"  path="Samples/DefaultPiano-45.aif" />
+      <sample loNote="46" hiNote="57"  rootNote="57"  path="Samples/DefaultPiano-57.aif" />
+      <sample loNote="58" hiNote="69"  rootNote="69"  path="Samples/DefaultPiano-69.aif" />
+      <sample loNote="70" hiNote="77"  rootNote="77"  path="Samples/DefaultPiano-77.aif" />
+      <sample loNote="78" hiNote="89"  rootNote="89"  path="Samples/DefaultPiano-89.aif" />
+      <sample loNote="90" hiNote="96"  rootNote="96"  path="Samples/DefaultPiano-96.aif" />
+      <sample loNote="94" hiNote="108" rootNote="108" path="Samples/DefaultPiano-108.aif" />
+      <effects>
+        <effect type="pitch_shift" pitchShift="0.0" mix="1" enabled="true"/>
+      </effects>
+    </group>
+  </groups>
+  <effects>
+    <effect type="lowpass_4pl" />
+    <effect type="reverb"/>
+  </effects>
+  <effects/>
+  <midi/>
+  <tags/>
+  <buses/>
+  <noteSequences/>
+</DecentSampler>
