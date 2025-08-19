@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler pluginVersion="1">
+  <ui>
+    <tab>
+      <label text="Language" x="330" y="30" width="120" height="30" textSize="24" ></label>
+      <control x="350" y="70"   style="rotary" width="84" height="84" trackForegroundColor="FFF06C55" trackBackgroundColor="66999999" parameterName="Language" valueType="multi_state" >      
+        <state name="English">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="true" />
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false" />
+        </state>
+        <state name="French">
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="true" />
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false" />
+        </state>
+        <state name="French &and; English">
+          <binding type="general" level="group" position="=" parameter="ENABLED" translation="fixed_value" translationValue="true" />
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="true" />
+        </state>
+      </button>
+    </tab>
+  </ui>
+  <groups pitchKeyTrack="0" seqMode="round_robin" seqLength="4">
+    <group tags="english" pan="0">
+      <sample path="Samples/One.wav" seqPosition="1"/>
+      <sample path="Samples/Two.wav" seqPosition="2"/>
+      <sample path="Samples/Three.wav" seqPosition="3"/>
+      <sample path="Samples/Four.wav" seqPosition="4"/>
+    </group>
+    <group tags="french" pan="0" seqLength="4">
+      <sample path="Samples/Un.wav" seqPosition="1"/>
+      <sample path="Samples/Deux.wav" seqPosition="2"/>
+      <sample path="Samples/Trois.wav" seqPosition="3"/>
+      <sample path="Samples/Quatre.wav" seqPosition="4"/>
+    </group>
+  </groups>
+</DecentSampler>
