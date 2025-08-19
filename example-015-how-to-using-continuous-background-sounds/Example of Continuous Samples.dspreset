@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.0.0">
+  <ui>
+    <tab>
+      <labeled-knob x="200" y="10" width="90" textSize="16" textColor="AA000000" trackForegroundColor="CC000000" trackBackgroundColor="66999999" label="Hiss" type="float" minValue="0.0" maxValue="1.0" value="1">
+        <binding type="amp" level="tag" identifier="hiss" parameter="AMP_VOLUME"/>
+      </labeled-knob>
+      <labeled-knob x="300" y="10" width="90" textSize="16" textColor="AA000000" trackForegroundColor="CC000000" trackBackgroundColor="66999999" label="Crackle" type="float" minValue="0.0" maxValue="1.0" value="0.5">
+        <binding type="amp" level="tag" identifier="crackle" parameter="AMP_VOLUME"/>
+      </labeled-knob>
+      <button x="200" y="120" width="90" height="20" parameterName="Hiss Enabled">
+        <state name="Enabled">
+          <binding type="general" level="group" tags="hiss" parameter="ENABLED" translation="fixed_value" translationValue="true" />
+        </state>
+        <state name="Disabled">
+          <binding type="general" level="group" tags="hiss" parameter="ENABLED" translation="fixed_value" translationValue="false" />
+        </state>
+      </button>
+      <button x="300" y="120" width="90" height="20" parameterName="Crackle Enabled">
+        <state name="Enabled">
+          <binding type="general" level="group" tags="crackle" parameter="ENABLED" translation="fixed_value" translationValue="true" />
+        </state>
+        <state name="Disabled">
+          <binding type="general" level="group" tags="crackle" parameter="ENABLED" translation="fixed_value" translationValue="false" />
+        </state>
+      </button>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups ampVelTrack="0" attack="0.000" decay="25" sustain="1.0" release="0.430" volume="0.3345800042152405">
+    
+    <group tags="hiss" trigger="continuous" >
+      <sample path="Samples/TapeHiss.wav" loopEnabled="true" />
+    </group>
+    <group tags="crackle" trigger="continuous" >
+      <sample path="Samples/VinylCrackle1.wav" loopEnabled="true" />
+    </group>
+  </groups>
+
+</DecentSampler>
