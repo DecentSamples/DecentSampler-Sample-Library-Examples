@@ -37,7 +37,7 @@
     <effect type="lowpass_4pl" />
     <effect type="reverb"/>
   </effects>
-  <effects/>
+  
   <midi/>
   <tags/>
   <buses/>
