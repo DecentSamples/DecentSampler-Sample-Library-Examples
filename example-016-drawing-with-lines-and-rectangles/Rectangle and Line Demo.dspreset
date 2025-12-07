@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecentSampler minVersion="1.15.0">
+  <ui width="812" height="375" bgColor="#FF1a1a1a" layoutMode="relative">
+    <tab name="Main">
+      <!-- Main background panel (fills entire screen) -->
+      <rectangle x="0" y="0" width="812" height="375" fillColor="#2a2a2a"/>
+      
+      <!-- Header section -->
+      <rectangle x="0" y="0" width="812" height="60" fillColor="#3a3a3a"/>
+      
+      <!-- Title area with outline -->
+      <rectangle x="20" y="10" width="400" height="40" fillColor="#1a1a1a" borderColor="#4a90e2" borderThickness="2"/>
+      
+      <!-- Decorative side stripe -->
+      <rectangle x="0" y="0" width="8" height="255" fillColor="#4a90e2"/>
+      
+      <!-- Control panels with outlines -->
+      <rectangle x="30" y="70" width="240" height="135" fillColor="#2d2d2d" borderColor="#e74c3c" borderThickness="1"/>
+      <rectangle x="290" y="70" width="240" height="135" fillColor="#2d2d2d" borderColor="#f39c12" borderThickness="1"/>
+      <rectangle x="550" y="70" width="240" height="135" fillColor="#2d2d2d" borderColor="#27ae60" borderThickness="1"/>
+      
+      <!-- Horizontal divider lines -->
+      <line x1="30" y1="95" x2="270" y2="95" lineColor="#e74c3c" lineThickness="2"/>
+      <line x1="290" y1="95" x2="530" y2="95" lineColor="#f39c12" lineThickness="2"/>
+      <line x1="550" y1="95" x2="790" y2="95" lineColor="#27ae60" lineThickness="2"/>
+      
+      <!-- Vertical divider lines between sections -->
+      <line x1="280" y1="70" x2="280" y2="205" lineColor="#555555" lineThickness="1"/>
+      <line x1="540" y1="70" x2="540" y2="205" lineColor="#555555" lineThickness="1"/>
+      
+      <!-- Labels -->
+      <label x="35" y="15" width="390" height="25" text="RECTANGLE &amp; LINE DEMO" textSize="20" textColor="#4a90e2" hAlign="left" vAlign="center"/>
+      <label x="35" y="38" width="390" height="15" text="New fillColor, borderColor, borderThickness, and line element" textSize="10" textColor="#888888" hAlign="left"/>
+      
+      <!-- Section titles -->
+      <label x="30" y="73" width="240" height="22" text="VOLUME" textSize="12" textColor="#e74c3c" hAlign="center" vAlign="center"/>
+      <label x="290" y="73" width="240" height="22" text="FILTER" textSize="12" textColor="#f39c12" hAlign="center" vAlign="center"/>
+      <label x="550" y="73" width="240" height="22" text="EFFECTS" textSize="12" textColor="#27ae60" hAlign="center" vAlign="center"/>
+      
+      <!-- Volume section controls -->
+      <labeled-knob x="65" y="110" width="80" height="90" label="Volume" type="float" minValue="0" maxValue="1" value="0.8" textColor="#FFFFFF"/>
+      <labeled-knob x="160" y="110" width="80" height="90" label="Pan" type="float" minValue="-1" maxValue="1" value="0" textColor="#FFFFFF"/>
+      
+      <!-- Filter section controls -->
+      <labeled-knob x="325" y="110" width="80" height="90" label="Cutoff" type="float" minValue="0" maxValue="1" value="0.7" textColor="#FFFFFF"/>
+      <labeled-knob x="420" y="110" width="80" height="90" label="Resonance" type="float" minValue="0" maxValue="1" value="0.3" textColor="#FFFFFF"/>
+      
+      <!-- Effects section controls -->
+      <labeled-knob x="585" y="110" width="80" height="90" label="Reverb" type="float" minValue="0" maxValue="1" value="0.35" textColor="#FFFFFF"/>
+      <labeled-knob x="680" y="110" width="80" height="90" label="Delay" type="float" minValue="0" maxValue="1" value="0.2" textColor="#FFFFFF"/>
+      
+      <!-- Footer with outline box -->
+      <rectangle x="30" y="207" width="760" height="8" fillColor="#00000000" borderColor="#4a90e2" borderThickness="1"/>
+      <label x="25" y="208" width="762" height="6" text="Usable: 215px (375 - 50px header - 110px keyboard) | Lines + Rectangles with fillColor/borderColor/borderThickness" textSize="7" textColor="#888888" hAlign="left" vAlign="center"/>
+      
+      <!-- Corner accents with outlines -->
+      <rectangle x="804" y="0" width="8" height="60" fillColor="#4a90e2"/>
+      <rectangle x="804" y="155" width="8" height="60" fillColor="#4a90e2"/>
+      
+      <!-- Decorative diagonal line in bottom right -->
+      <line x1="790" y1="155" x2="804" y2="215" lineColor="#4a90e280" lineThickness="2"/>
+      
+      <!-- Subtle shadow effect under header -->
+      <rectangle x="8" y="60" width="796" height="2" fillColor="#55000000"/>
+      <rectangle x="8" y="62" width="796" height="2" fillColor="#33000000"/>
+      <rectangle x="8" y="64" width="796" height="2" fillColor="#11000000"/>
+    </tab>
+  </ui>
+  
+  <groups/>
+  
+  <effects/>
+</DecentSampler>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.15.0">
+  <effects>
+    <effect type="lowpass" frequency="21989.00916994164"/>
+    <effect type="chorus" mix="0.3499999921768904" modDepth="0.2" modRate="0.2"/>
+    <effect type="reverb" wetLevel="0.2801999664306641"/>
+  </effects>
+  <ui width="812" height="375" bgImage="Images/Oscillator Full Test Skin.jpg">
+    <tab name="main">
+      <menu x="145" y="47" width="100" height="20" parameterName="Waveform 1 Type" value="5">
+        <option name="Off">
+          <binding type="general" level="group" tags="voice1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+        </option>
+        <option name="Sine">
+          <binding type="general" level="group" tags="voice1" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice1" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="sine"/>
+        </option>
+        <option name="Saw">
+          <binding type="general" level="group" tags="voice1" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice1" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="saw"/>
+        </option>
+        <option name="Square">
+          <binding type="general" level="group" tags="voice1" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice1" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="square"/>
+        </option>
+        <option name="Triangle">
+          <binding type="general" level="group" tags="voice1" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice1" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="triangle"/>
+        </option>
+      </menu>
+      <control x="145" y="73" style="linear_bar" width="84" height="12" trackForegroundColor="CCF06C55" trackBackgroundColor="66999999" label="Wave 1 Volume" type="float" minValue="0.0" maxValue="1" value="0.2599999941885471">
+        <binding type="amp" level="group" tags="voice1" parameter="AMP_VOLUME"/>
+      </control>
+      <control x="145" y="96" style="linear_bar" width="84" height="12" trackForegroundColor="CCF06C55" trackBackgroundColor="66999999" label="Wave 1 Tuning" type="float" minValue="-12" maxValue="12" value="0" defaultValue="0" snapMode="whole_numbers" defeatSnapWithShift="true">
+        <binding type="amp" level="group" tags="voice1" parameter="GROUP_TUNING"/>
+      </control>
+      <menu x="145" y="115" width="100" height="20" parameterName="Waveform 2 Type" value="2">
+        <option name="Off">
+          <binding type="general" level="group" tags="voice2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+        </option>
+        <option name="Sine">
+          <binding type="general" level="group" tags="voice2" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice2" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="sine"/>
+        </option>
+        <option name="Saw">
+          <binding type="general" level="group" tags="voice2" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice2" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="saw"/>
+        </option>
+        <option name="Square">
+          <binding type="general" level="group" tags="voice2" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice2" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="square"/>
+        </option>
+        <option name="Triangle">
+          <binding type="general" level="group" tags="voice2" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" tags="voice2" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="triangle"/>
+        </option>
+      </menu>
+      <control x="145" y="141" style="linear_bar" width="84" height="12" trackForegroundColor="CCF06C55" trackBackgroundColor="66999999" label="Wave 2 Volume" type="float" minValue="0.0" maxValue="1" value="0.0">
+        <binding type="amp" level="group" tags="voice2" parameter="AMP_VOLUME"/>
+      </control>
+      <control x="145" y="163" style="linear_bar" width="84" height="12" trackForegroundColor="CCF06C55" trackBackgroundColor="66999999" label="Wave 2 Tuning" type="float" minValue="-12" maxValue="12" value="0" defaultValue="0" snapMode="whole_numbers" defeatSnapWithShift="true">
+        <binding type="amp" level="group" tags="voice2" parameter="GROUP_TUNING"/>
+      </control>
+      <control x="145" y="185" style="linear_bar" width="84" height="12" trackForegroundColor="CCF06C55" trackBackgroundColor="66999999" label="Noise Volume" type="float" minValue="0.0" maxValue="1" value="0.06999999843537807">
+        <binding type="amp" level="group" tags="noise" parameter="AMP_VOLUME"/>
+      </control>
+      <control x="290" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCF1C232" trackBackgroundColor="66999999" label="Wave 1 Volume" type="float" minValue="0.0" maxValue="5" value="0.0">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_ATTACK"/>
+      </control>
+      <control x="313" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCF1C232" trackBackgroundColor="66999999" label="Decay" type="float" minValue="0.0" maxValue="5" value="5.0">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_DECAY"/>
+      </control>
+      <control x="336" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCF1C232" trackBackgroundColor="66999999" label="Sustain" type="float" minValue="0.0" maxValue="1" value="0.0">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_SUSTAIN"/>
+      </control>
+      <control x="359" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCF1C232" trackBackgroundColor="66999999" label="Release" type="float" minValue="0.01" maxValue="4.0" value="1.600000023841858">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_RELEASE"/>
+      </control>
+      <control x="401" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCE7F132" trackBackgroundColor="66999999" label="Cutoff" type="float" minValue="0" maxValue="1" value="0.5699999872595072">
+        <binding type="effect" level="group" tags="all" effectIndex="0" parameter="FX_FILTER_FREQUENCY" translation="table" translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+      </control>
+      <control x="424" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCE7F132" trackBackgroundColor="66999999" label="Res." type="float" minValue="0.7" maxValue="4" value="0.699999988079071">
+        <binding type="effect" level="group" tags="all" effectIndex="0" parameter="FX_FILTER_RESONANCE"/>
+      </control>
+      <control x="469" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC9AF132" trackBackgroundColor="66999999" label="Mod. Amt." type="percent" minValue="0" maxValue="1" value="0.3799999915063381">
+        <binding type="modulator" level="instrument" position="0" parameter="MOD_AMOUNT"/>
+      </control>
+      <control x="491" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC9AF132" trackBackgroundColor="66999999" label="Attack" type="float" minValue="0.0" maxValue="5" value="0.0">
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_ATTACK"/>
+      </control>
+      <control x="514" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC9AF132" trackBackgroundColor="66999999" label="Decay" type="float" minValue="0.0" maxValue="5" value="4.349999904632568">
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_DECAY"/>
+      </control>
+      <control x="536" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC9AF132" trackBackgroundColor="66999999" label="Sustain" type="float" minValue="0.0" maxValue="1" value="0.0">
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_SUSTAIN"/>
+      </control>
+      <control x="558" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC9AF132" trackBackgroundColor="66999999" label="Release" type="float" minValue="0.01" maxValue="4.0" value="0.009999999776482582">
+        <binding type="modulator" level="instrument" position="0" parameter="ENV_RELEASE"/>
+      </control>
+      <control x="600" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC32AFF1" trackBackgroundColor="66999999" label="Filter LFO Amount" type="float" minValue="0.0" maxValue="1" value="0.0">
+        <binding type="modulator" level="instrument" position="1" parameter="MOD_AMOUNT"/>
+      </control>
+      <control x="622" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC32AFF1" trackBackgroundColor="66999999" label="Filter LFO Rate" type="float" minValue="0.0" maxValue="20" value="8.300000190734863">
+        <binding level="instrument" type="modulator" position="1" parameter="FREQUENCY"/>
+      </control>
+      <control x="664" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC6432F1" trackBackgroundColor="66999999" label="Pitch LFO Amount" type="float" minValue="0.0" maxValue="1" value="0.02999999932944775">
+        <binding type="modulator" level="instrument" position="2" parameter="MOD_AMOUNT"/>
+      </control>
+      <control x="687" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CC6432F1" trackBackgroundColor="66999999" label="Pitch LFO Rate" type="float" minValue="0" maxValue="20" value="4.0">
+        <binding level="instrument" type="modulator" position="2" parameter="FREQUENCY"/>
+      </control>
+      <control x="722" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCF132A8" trackBackgroundColor="66999999" label="Distortion" type="float" minValue="1" maxValue="200" value="1.0">
+        <binding type="effect" level="group" effectIndex="1" tags="all" parameter="FX_DRIVE" translation="linear"/>
+        <binding type="effect" level="group" effectIndex="1" tags="all" parameter="FX_OUTPUT_LEVEL" translation="table" translationTable="0,1.0;1,1.0;1.5,0.67;2.0,0.51;4.0,0.26;5.0,0.21;20,0.09;100,0.07;250.0001,0.07"/>
+      </control>
+      <control x="768" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCF132A8" trackBackgroundColor="66999999" label="Reverb" type="percent" minValue="0" maxValue="100" value="28.01999664306641">
+        <binding type="effect" level="instrument" effectIndex="2" parameter="FX_REVERB_WET_LEVEL" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+      </control>
+      <control x="745" y="51" style="linear_bar_vertical" width="12" height="84" trackForegroundColor="CCF132A8" trackBackgroundColor="66999999" label="Chorus" type="float" minValue="0.0" maxValue="1" value="0.3499999921768904">
+        <binding type="effect" level="instrument" effectIndex="1" parameter="FX_MIX"/>
+      </control>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups attack="0.0" decay="5.0" sustain="0.0" release="1.600000023841858" ampVelTrack="0.3" decayCurve="46">
+    <group tags="all,voice1" modVolume="0.2599999941885471" enabled="1" groupTuning="0.0" waveform="triangle">
+      <oscillator/>
+      <effects>
+        <effect type="lowpass" frequency="2149.999871477477" resonance="0.699999988079071"/>
+        <effect type="wave_shaper" drive="1.0" outputLevel="1.0"/>
+      </effects>
+    </group>
+    <group tags="all,voice2" modVolume="0.0" enabled="1" groupTuning="0.0" waveform="sine">
+      <oscillator/>
+      <effects>
+        <effect type="lowpass" frequency="2149.999871477477" resonance="0.699999988079071"/>
+        <effect type="wave_shaper" drive="1.0" outputLevel="1.0"/>
+      </effects>
+    </group>
+    <group name="Noise" tags="all,noise" modVolume="0.06999999843537807" pitchKeyTrack="0" waveform="noise">
+      <oscillator/>
+      <effects>
+        <effect type="lowpass" frequency="2149.999871477477" resonance="0.699999988079071"/>
+        <effect type="wave_shaper" drive="1.0" outputLevel="1.0"/>
+      </effects>
+    </group>
+  </groups>
+  <midi/>
+  <modulators>
+    <envelope attack="0.0" decay="4.349999904632568" sustain="0.0" release="0.009999999776482582" modAmount="0.3799999915063381" scope="voice">
+      <binding type="effect" level="group" tags="voice1,voice2,noise" effectIndex="0" parameter="FX_FILTER_FREQUENCY" modBehavior="add" translation="table" translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+    </envelope>
+    <lfo shape="sine" frequency="8.300000190734863" modAmount="0.0">
+      <binding type="effect" level="group" tags="voice1,voice2,noise" effectIndex="0" parameter="FX_FILTER_FREQUENCY" modBehavior="add" translation="table" translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+    </lfo>
+    <lfo shape="sine" frequency="4.0" modAmount="0.02999999932944775">
+      <binding type="amp" level="group" tags="voice1,voice2" parameter="GROUP_TUNING" modBehavior="add" translation="linear" translationOutputMin="-12" translationOutputMax="12"/>
+    </lfo>
+  </modulators>
+  <tags>
+    <tag name="voice1" volume="1" pan="0"/>
+    <tag name="voice2" volume="1" pan="0"/>
+    <tag name="noise" volume="1" pan="0"/>
+    <tag name="all" volume="1" pan="0"/>
+  </tags>
+  <noteSequences/>
+  <buses/>
+</DecentSampler>

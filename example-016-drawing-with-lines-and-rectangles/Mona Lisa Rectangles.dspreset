@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.15.0">
+  <ui width="812" height="375" bgColor="#FF1a1a1a" layoutMode="relative">
+    <tab name="Main">
+      <!-- Background -->
+      <rectangle x="0" y="0" width="812" height="375" fillColor="#FF2a2a2a"/>
+      
+      <!-- Sky/Background - softer gradient -->
+      <rectangle x="250" y="5" width="240" height="50" fillColor="#FF6a8d9a"/>
+      <rectangle x="250" y="55" width="240" height="40" fillColor="#FF7a9daa"/>
+      <rectangle x="250" y="95" width="240" height="110" fillColor="#FF8aadba"/>
+      
+      <!-- Landscape elements -->
+      <rectangle x="255" y="120" width="50" height="30" fillColor="#FF5a6d6a"/>
+      <rectangle x="435" y="130" width="50" height="25" fillColor="#FF5a6d6a"/>
+      
+      <!-- Face oval shape - more refined -->
+      <rectangle x="320" y="75" width="85" height="90" fillColor="#FFe8d4b8"/>
+      <rectangle x="325" y="68" width="75" height="14" fillColor="#FFe8d4b8"/>
+      <rectangle x="328" y="60" width="69" height="14" fillColor="#FFe8d4b8"/>
+      <rectangle x="332" y="54" width="61" height="12" fillColor="#FFe8d4b8"/>
+      <rectangle x="335" y="165" width="55" height="8" fillColor="#FFe8d4b8"/>
+      <rectangle x="340" y="173" width="45" height="6" fillColor="#FFe8d4b8"/>
+      
+      <!-- Hair - richer dark brown -->
+      <rectangle x="323" y="42" width="79" height="20" fillColor="#FF1a0f08"/>
+      <rectangle x="318" y="60" width="20" height="75" fillColor="#FF1a0f08"/>
+      <rectangle x="387" y="60" width="20" height="75" fillColor="#FF1a0f08"/>
+      <rectangle x="322" y="130" width="16" height="25" fillColor="#FF1a0f08"/>
+      <rectangle x="387" y="130" width="16" height="25" fillColor="#FF1a0f08"/>
+      <rectangle x="315" y="95" width="10" height="35" fillColor="#FF2a1810"/>
+      <rectangle x="400" y="95" width="10" height="35" fillColor="#FF2a1810"/>
+      
+      <!-- Hair highlights -->
+      <rectangle x="335" y="48" width="15" height="8" fillColor="#FF3a2818"/>
+      <rectangle x="365" y="45" width="20" height="10" fillColor="#FF3a2818"/>
+      
+      <!-- Eyebrows - more defined -->
+      <rectangle x="335" y="92" width="24" height="3" fillColor="#FF3a2015"/>
+      <rectangle x="366" y="92" width="24" height="3" fillColor="#FF3a2015"/>
+      
+      <!-- Eyes - more detailed -->
+      <rectangle x="338" y="100" width="16" height="7" fillColor="#FF2a1810"/>
+      <rectangle x="371" y="100" width="16" height="7" fillColor="#FF2a1810"/>
+      <!-- Eye highlights -->
+      <rectangle x="342" y="101" width="4" height="3" fillColor="#FF4a3828"/>
+      <rectangle x="375" y="101" width="4" height="3" fillColor="#FF4a3828"/>
+      
+      <!-- Nose - more sculpted -->
+      <rectangle x="358" y="108" width="10" height="20" fillColor="#FFd8c4a8"/>
+      <rectangle x="356" y="115" width="4" height="12" fillColor="#FFc8b498"/>
+      
+      <!-- Cheek shading -->
+      <rectangle x="330" y="118" width="15" height="20" fillColor="#FFf0dcc8"/>
+      <rectangle x="380" y="118" width="15" height="20" fillColor="#FFf0dcc8"/>
+      
+      <!-- Mouth - subtle smile -->
+      <rectangle x="348" y="135" width="30" height="3" fillColor="#FFb89888"/>
+      <rectangle x="351" y="138" width="24" height="2" fillColor="#FFc8a898"/>
+      <!-- Smile shadow -->
+      <rectangle x="346" y="136" width="3" height="3" fillColor="#FFd8c4a8"/>
+      <rectangle x="377" y="136" width="3" height="3" fillColor="#FFd8c4a8"/>
+      
+      <!-- Neck and chest -->
+      <rectangle x="338" y="179" width="50" height="26" fillColor="#FFd8c4a8"/>
+      <rectangle x="343" y="175" width="40" height="8" fillColor="#FFe0ccb0"/>
+      
+      <!-- Clothing - refined Renaissance dress -->
+      <rectangle x="323" y="195" width="80" height="10" fillColor="#FF2a3a2a"/>
+      <rectangle x="315" y="200" width="96" height="5" fillColor="#FF3a4a3a"/>
+      <!-- Dress details -->
+      <rectangle x="318" y="183" width="90" height="12" fillColor="#FF4a5a4a"/>
+      <rectangle x="325" y="177" width="76" height="8" fillColor="#FF5a6a5a"/>
+      
+      <!-- Hands - more graceful -->
+      <rectangle x="328" y="198" width="28" height="7" fillColor="#FFe8d4b8"/>
+      <rectangle x="369" y="198" width="28" height="7" fillColor="#FFe8d4b8"/>
+      <!-- Finger details -->
+      <rectangle x="332" y="202" width="6" height="3" fillColor="#FFd8c4a8"/>
+      <rectangle x="373" y="202" width="6" height="3" fillColor="#FFd8c4a8"/>
+      
+      <!-- Frame border - ornate gold -->
+      <rectangle x="243" y="3" width="254" height="202" fillColor="none" borderColor="#FFe6c365" borderThickness="3"/>
+      <rectangle x="238" y="0" width="264" height="208" fillColor="none" borderColor="#FFd4a850" borderThickness="5"/>
+      <rectangle x="233" y="-3" width="274" height="214" fillColor="none" borderColor="#FF8b6f3a" borderThickness="3"/>
+      
+      <label x="20" y="10" width="200" height="25" text="Mona Lisa" textSize="16" textColor="#FFe6c365" hAlign="left" vAlign="center"/>
+      <label x="20" y="35" width="200" height="30" text="Rectangle Edition" textSize="12" textColor="#FFd4a850" hAlign="left" vAlign="center"/>
+      <label x="20" y="65" width="200" height="60" text="A simplified interpretation of Leonardo da Vinci's masterpiece using only rectangles and lines." textSize="9" textColor="#FF999999" hAlign="left" vAlign="top"/>
+      <label x="20" y="130" width="200" height="40" text="c. 1503-1519" textSize="8" textColor="#FF777777" hAlign="left" vAlign="center"/>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups/>
+  <effects/>
+  <tags/>
+  <buses/>
+  <midi/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>

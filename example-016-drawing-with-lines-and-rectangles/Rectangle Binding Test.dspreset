@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.15.0">
+  <ui width="812" height="375" bgColor="#FF1a1a1a" layoutMode="relative">
+    <tab name="Main">
+      <rectangle x="0" y="0" width="812" height="375" fillColor="#FF2a2a2a"/>
+      <rectangle x="300" y="100" width="200" height="100" fillColor="#FF4a90e2" borderColor="#FFe74c3c" borderThickness="2"/>
+      <label x="20" y="20" width="100" height="30" text="Rectangle Controls" textSize="16" textColor="#FFFFFFFF" hAlign="left" vAlign="center"/>
+      <label x="20" y="60" width="80" height="20" text="X Position" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="20" y="80" width="80" height="90" label="X" type="float" minValue="0" maxValue="612" value="300" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="X" translation="linear" translationOutputMin="0" translationOutputMax="612"/>
+      </labeled-knob>
+      <label x="120" y="60" width="80" height="20" text="Y Position" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="120" y="80" width="80" height="90" label="Y" type="float" minValue="0" maxValue="275" value="100" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="Y" translation="linear" translationOutputMin="0" translationOutputMax="275"/>
+      </labeled-knob>
+      <label x="220" y="60" width="80" height="20" text="Width" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="220" y="80" width="80" height="90" label="Width" type="float" minValue="10" maxValue="400" value="200" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="WIDTH" translation="linear" translationOutputMin="10" translationOutputMax="400"/>
+      </labeled-knob>
+      <label x="320" y="60" width="80" height="20" text="Height" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="320" y="80" width="80" height="90" label="Height" type="float" minValue="10" maxValue="275" value="100" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="HEIGHT" translation="linear" translationOutputMin="10" translationOutputMax="275"/>
+      </labeled-knob>
+      <label x="20" y="180" width="400" height="60" text="Use the knobs above to control the position and size of the blue rectangle with red border." textSize="11" textColor="#FF888888" hAlign="left" vAlign="top"/>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups/>
+  <effects/>
+  <tags/>
+  <buses/>
+  <midi/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>

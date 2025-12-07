@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.15.0">
+  <ui width="812" height="475" bgColor="FF1a1a1a">
+    <tab name="main">
+      <label x="10" y="10" width="200" height="30" text="OSCILLATOR TEST" textSize="18" textColor="FFFFFFFF"/>
+      <label x="10" y="50" width="100" height="20" text="Waveform" textColor="FFAAAAAA"/>
+      <menu x="10" y="70" width="150" height="30" value="2" requireSelection="true">
+        <option name="Sine">
+          <binding type="general" level="group" position="0" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="sine"/>
+        </option>
+        <option name="Saw">
+          <binding type="general" level="group" position="0" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="saw"/>
+        </option>
+        <option name="Square">
+          <binding type="general" level="group" position="0" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="square"/>
+        </option>
+        <option name="Triangle">
+          <binding type="general" level="group" position="0" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="triangle"/>
+        </option>
+        <option name="Noise">
+          <binding type="general" level="group" position="0" parameter="OSCILLATOR_WAVEFORM" translation="fixed_value" translationValue="noise"/>
+        </option>
+      </menu>
+      <label x="180" y="50" width="100" height="20" text="Envelope" textColor="FFAAAAAA"/>
+      <labeled-knob x="180" y="75" width="75" height="90" label="Attack" type="float" minValue="0.0" maxValue="5.0" value="0.009999999776482582" textColor="FFFFFFFF" defaultValue="0.0">
+        <binding type="amp" level="group" position="0" parameter="ENV_ATTACK" translation="linear" translationOutputMin="0.0" translationOutputMax="5.0"/>
+      </labeled-knob>
+      <labeled-knob x="260" y="75" width="75" height="90" label="Decay" type="float" minValue="0.0" maxValue="10.0" value="0.5" textColor="FFFFFFFF" defaultValue="0.0">
+        <binding type="amp" level="group" position="0" parameter="ENV_DECAY" translation="linear" translationOutputMin="0.0" translationOutputMax="10.0"/>
+      </labeled-knob>
+      <labeled-knob x="340" y="75" width="75" height="90" label="Sustain" type="float" minValue="0.0" maxValue="1.0" value="0.7999999821186066" textColor="FFFFFFFF" defaultValue="1.0">
+        <binding type="amp" level="group" position="0" parameter="ENV_SUSTAIN" translation="linear" translationOutputMin="0.0" translationOutputMax="1.0"/>
+      </labeled-knob>
+      <labeled-knob x="420" y="75" width="75" height="90" label="Release" type="float" minValue="0.0" maxValue="10.0" value="0.5" textColor="FFFFFFFF" defaultValue="0.0">
+        <binding type="amp" level="group" position="0" parameter="ENV_RELEASE" translation="linear" translationOutputMin="0.0" translationOutputMax="10.0"/>
+      </labeled-knob>
+      <label x="510" y="50" width="100" height="20" text="Lowpass Filter" textColor="FFAAAAAA"/>
+      <labeled-knob x="510" y="75" width="75" height="90" label="Cutoff" type="float" minValue="0.0" maxValue="1.0" value="11178.4404296875" textColor="FFFFFFFF" defaultValue="1.0">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_FILTER_FREQUENCY" translation="table" translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+      </labeled-knob>
+      <labeled-knob x="590" y="75" width="75" height="90" label="Resonance" type="float" minValue="0.0" maxValue="5.0" value="0.1" textColor="FFFFFFFF" defaultValue="0.7">
+        <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_FILTER_RESONANCE" translation="linear" translationOutputMin="0.1" translationOutputMax="5.0"/>
+      </labeled-knob>
+      <label x="680" y="50" width="100" height="20" text="Tuning" textColor="FFAAAAAA"/>
+      <labeled-knob x="680" y="75" width="75" height="90" label="Semitones" type="float" minValue="-24" maxValue="24" value="4.739999771118164" textColor="FFFFFFFF" defaultValue="0.0">
+        <binding type="amp" level="group" groupIndex="0" parameter="GROUP_TUNING" translation="linear" translationOutputMin="-24" translationOutputMax="24"/>
+      </labeled-knob>
+      <label x="10" y="180" width="100" height="20" text="Output" textColor="FFAAAAAA"/>
+      <labeled-knob x="10" y="205" width="75" height="90" label="Volume" type="float" minValue="0.0" maxValue="1.0" value="0.4499999899417162" textColor="FFFFFFFF" defaultValue="0.5">
+        <binding type="amp" level="group" groupIndex="0" parameter="AMP_VOLUME" translation="linear" translationOutputMin="0.0" translationOutputMax="1.0"/>
+      </labeled-knob>
+      <labeled-knob x="90" y="205" width="75" height="90" label="Pan" type="float" minValue="-100" maxValue="100" value="-64.84999847412109" textColor="FFFFFFFF" defaultValue="0.0">
+        <binding type="amp" level="group" groupIndex="0" parameter="PAN" translation="linear" translationOutputMin="-100" translationOutputMax="100"/>
+      </labeled-knob>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups>
+    <group name="Oscillator" enabled="true" attack="0.009999999776482582" decay="0.5" sustain="0.7999999821186066" release="0.5" volume="0.5" loNote="0" hiNote="127" waveform="saw" groupTuning="4.739999771118164" modVolume="0.4499999899417162" groupPan="-64.84999847412109">
+      <oscillator/>
+      <effects>
+        <effect type="lowpass" frequency="11178.4404296875"/>
+      </effects>
+    </group>
+  </groups>
+  <effects/>
+  <tags/>
+  <buses/>
+  <midi/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>

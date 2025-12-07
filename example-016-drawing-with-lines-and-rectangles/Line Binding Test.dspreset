@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.15.0">
+  <ui width="812" height="375" bgColor="#FF1a1a1a" layoutMode="relative">
+    <tab name="Main">
+      <rectangle x="0" y="0" width="812" height="375" fillColor="#FF2a2a2a"/>
+      <line x1="100" y1="150" x2="400" y2="150" lineColor="#FF4a90e2" lineThickness="3"/>
+      <label x="20" y="20" width="150" height="30" text="Line Endpoint Controls" textSize="16" textColor="#FFFFFFFF" hAlign="left" vAlign="center"/>
+      
+      <label x="20" y="60" width="80" height="20" text="X1 (Start X)" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="20" y="80" width="80" height="90" label="X1" type="float" minValue="0" maxValue="812" value="100" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="X1" translation="linear" translationOutputMin="0" translationOutputMax="812"/>
+      </labeled-knob>
+      
+      <label x="120" y="60" width="80" height="20" text="Y1 (Start Y)" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="120" y="80" width="80" height="90" label="Y1" type="float" minValue="0" maxValue="375" value="150" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="Y1" translation="linear" translationOutputMin="0" translationOutputMax="375"/>
+      </labeled-knob>
+      
+      <label x="220" y="60" width="80" height="20" text="X2 (End X)" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="220" y="80" width="80" height="90" label="X2" type="float" minValue="0" maxValue="812" value="400" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="X2" translation="linear" translationOutputMin="0" translationOutputMax="812"/>
+      </labeled-knob>
+      
+      <label x="320" y="60" width="80" height="20" text="Y2 (End Y)" textSize="12" textColor="#FFCCCCCC" hAlign="left" vAlign="center"/>
+      <labeled-knob x="320" y="80" width="80" height="90" label="Y2" type="float" minValue="0" maxValue="375" value="150" textColor="#FFFFFF">
+        <binding type="control" level="ui" position="1" parameter="Y2" translation="linear" translationOutputMin="0" translationOutputMax="375"/>
+      </labeled-knob>
+      
+      <label x="20" y="180" width="500" height="60" text="Use the four knobs above to control the start and end points of the blue line. You can create horizontal, vertical, or diagonal lines by adjusting the endpoints." textSize="11" textColor="#FF888888" hAlign="left" vAlign="top"/>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups/>
+  <effects/>
+  <tags/>
+  <buses/>
+  <midi/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>

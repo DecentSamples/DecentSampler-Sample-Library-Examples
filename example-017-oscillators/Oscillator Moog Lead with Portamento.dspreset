@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.15.0">
+  <ui width="812" height="375" bgImage="Images/blank.png" layoutMode="relative" bgMode="top_left">
+    <tab name="main">
+      <labeled-knob x="10" y="20" width="90" label="Attack" type="float" minValue="0.0" maxValue="2.0" value="0.009999999776482582" textColor="FF000000">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_ATTACK"/>
+      </labeled-knob>
+      <labeled-knob x="110" y="20" width="90" label="Decay" type="float" minValue="0.0" maxValue="3.0" value="0.2999999821186066" textColor="FF000000">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_DECAY"/>
+      </labeled-knob>
+      <labeled-knob x="210" y="20" width="90" label="Sustain" type="percent" minValue="0" maxValue="100" value="70.0" textColor="FF000000">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_SUSTAIN"/>
+      </labeled-knob>
+      <labeled-knob x="310" y="20" width="90" label="Release" type="float" minValue="0.0" maxValue="5.0" value="0.5" textColor="FF000000">
+        <binding type="amp" level="instrument" position="0" parameter="ENV_RELEASE"/>
+      </labeled-knob>
+      <labeled-knob x="420" y="20" width="90" label="Glide Time" type="float" minValue="0.0" maxValue="2.0" value="0.01999999955296516" textColor="FF000000">
+        <binding type="general" level="instrument" position="0" parameter="GLIDE_TIME"/>
+      </labeled-knob>
+      <labeled-knob x="10" y="130" width="90" label="Cutoff" type="float" minValue="0" maxValue="22000" value="2000.0" textColor="FF000000">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"/>
+      </labeled-knob>
+      <labeled-knob x="110" y="130" width="90" label="Resonance" type="percent" minValue="0" maxValue="100" value="30.00000190734863" textColor="FF000000">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_RESONANCE"/>
+      </labeled-knob>
+      <labeled-knob x="210" y="130" width="90" label="Env Amount" type="float" minValue="-10000" maxValue="10000" value="2999.99951171875" textColor="FF000000">
+        <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_ENV_AMOUNT"/>
+      </labeled-knob>
+      <labeled-knob x="10" y="240" width="90" label="Detune" type="float" minValue="-24" maxValue="24" value="0.100001335144043" textColor="FF000000">
+        <binding type="amp" level="group" position="1" parameter="GROUP_TUNING"/>
+      </labeled-knob>
+      <labeled-knob x="110" y="240" width="90" label="Mix" type="percent" minValue="0" maxValue="100" value="30.00000190734863" textColor="FF000000">
+        <binding type="amp" level="group" position="1" parameter="AMP_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+      <labeled-knob x="320" y="240" width="90" label="LFO Rate" type="float" minValue="0.1" maxValue="10.0" value="5.0" textColor="FF000000">
+        <binding type="general" level="instrument" position="0" parameter="LFO_FREQUENCY" modBehavior="set"/>
+      </labeled-knob>
+      <labeled-knob x="420" y="240" width="90" label="LFO-&gt;Pitch" type="float" minValue="0" maxValue="1.0" value="0.1499999966472387" textColor="FF000000">
+        <binding type="general" level="instrument" position="0" parameter="MOD_AMOUNT" modBehavior="set"/>
+      </labeled-knob>
+      <labeled-knob x="530" y="20" width="90" label="Volume" type="percent" minValue="0" maxValue="100" value="80.0" textColor="FF000000">
+        <binding type="amp" level="instrument" position="0" parameter="AMP_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups attack="0.009999999776482582" decay="0.2999999821186066" sustain="70.0" release="0.5" volume="0.800000011920929" glideTime="0.3" glideMode="legato">
+    <group name="Osc1" tags="osc1" >
+      <oscillator waveform="saw" volume="0.8" attack="0.01" decay="0.3" sustain="0.7" release="0.5"/>
+      <effects/>
+    </group>
+    <group name="Osc2" tags="osc2">
+      <oscillator waveform="saw" />
+      <effects/>
+    </group>
+  </groups>
+  <effects>
+    <effect type="lowpass" frequency="2000.0" resonance="30.00000190734863" envelope_amount="3000.0" envelope_attack="0.01" envelope_decay="0.3" envelope_sustain="0.0" envelope_release="0.5"/>
+  </effects>
+  <modulators>
+    <lfo shape="sine" frequency="5.0" modAmount="0.15" scope="global">
+      <binding type="amp" level="group" tags="osc1,osc2" parameter="GROUP_TUNING" modBehavior="add" translation="linear" translationOutputMin="-0.5" translationOutputMax="0.5"/>
+    </lfo>
+  </modulators>
+  <tags>
+    <tag name="osc1" volume="1" pan="0" polyphony="1" />
+    <tag name="osc2" volume="1" pan="0" polyphony="1" />
+  </tags>
+  <buses/>
+  <midi/>
+  <noteSequences/>
+</DecentSampler>
