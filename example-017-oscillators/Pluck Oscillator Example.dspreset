@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.15.1">
+  
+  <ui height="375">
+    <tab>
+    <labeled-knob x="20" y="20" width="80" height="100" label="Damping" value="0.5" 
+                  minimum="0" maximum="1">
+      <binding type="general" level="group" position="0" parameter="OSCILLATOR_DAMPING" 
+               translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+      <!-- Also release -->
+       <binding type="amp" level="group" position="0" parameter="ENV_RELEASE" 
+               translation="table"
+               translationTable="0,0.5;0.5,6.0;1.0,10.0"/>
+    </labeled-knob>
+    
+    <labeled-knob x="120" y="20" width="80" height="100" label="Pluck Type" value="0.5" 
+                  minimum="0" maximum="1">
+      <binding type="general" level="group" position="0" parameter="OSCILLATOR_PLUCK_TYPE" 
+               translation="linear" translationOutputMin="0" translationOutputMax="1"/>
+    </labeled-knob>
+    
+    <label x="20" y="130" width="300" height="20" text="Pluck1 Oscillator Test Preset" fontSize="16"/>
+    <label x="20" y="155" width="300" height="40" text="Use Damping knob to control decay time&#10;Use Pluck Type knob to blend excitation (triangle → noise)" fontSize="11"/>
+    </tab>
+  </ui>
+  
+  <groups  attack="0.005" decay="0.1" sustain="1" release="10.0" tuning="0" amplitudeVelTrack="1" pitchKeyTrack="1" damping="0.5" pluckType="0.5">
+    <group >
+      <oscillator waveform="pluck1" />
+    </group>
+  </groups>
+  
+</DecentSampler>
