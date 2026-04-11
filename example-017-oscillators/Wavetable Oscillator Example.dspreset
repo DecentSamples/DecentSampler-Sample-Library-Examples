@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DecentSampler minVersion="1.19.0">
+  <ui height="375" bgColor="#FF1A1A2E">
+    <tab>
+      
+      <label x="20" y="10" width="500" height="20" text="Wavetable Oscillator &#8212; Default Shapes Test" fontSize="15" textColor="#FFFFFFFF"/>
+      <label x="20" y="32" width="560" height="14" text="Serum-format wavetables &#183; band-limited mip-maps &#183; frame interpolation toggle" fontSize="10" textColor="#FFAAAACC"/>
+      
+      <label x="20" y="52" width="200" height="14" text="Frame Interpolation" fontSize="11" textColor="#FFAAAACC"/>
+      <button x="20" y="68" width="200" height="26" style="text" value="0">
+        <state name="Off (snap to frame)">
+          <binding type="general" level="group" tags="wt" parameter="OSCILLATOR_WAVETABLE_FRAME_INTERPOLATION" translation="fixed_value" translationValue="false"/>
+        </state>
+        <state name="On (smooth crossfade)">
+          <binding type="general" level="group" tags="wt" parameter="OSCILLATOR_WAVETABLE_FRAME_INTERPOLATION" translation="fixed_value" translationValue="true"/>
+        </state>
+      </button>
+
+      <labeled-knob x="380" y="55" width="80" height="85" label="Position" value="0" minValue="0" maxValue="1" textColor="#FFFFFFFF" trackForegroundColor="#FF6699FF" trackBackgroundColor="#FF333355">
+        <binding type="general" level="group" tags="wt" parameter="OSCILLATOR_WAVETABLE_POSITION" translation="linear" translationOutputMin="0.0" translationOutputMax="1.0"/>
+      </labeled-knob>
+      <labeled-knob x="470" y="55" width="80" height="85" label="Attack" value="0.009999999776482582" minValue="0.001" maxValue="2" textColor="#FFFFFFFF" trackForegroundColor="#FF66CC99" trackBackgroundColor="#FF333355">
+        <binding type="amp" level="group" tags="wt" parameter="ENV_ATTACK" translation="linear" translationOutputMin="0.001" translationOutputMax="2.0"/>
+      </labeled-knob>
+      <labeled-knob x="560" y="55" width="80" height="85" label="Release" value="0.0" minValue="0.01" maxValue="4" textColor="#FFFFFFFF" trackForegroundColor="#FF66CC99" trackBackgroundColor="#FF333355">
+        <binding type="amp" level="group" tags="wt" parameter="ENV_RELEASE" translation="linear" translationOutputMin="0.01" translationOutputMax="4.0"/>
+      </labeled-knob>
+      <labeled-knob x="650" y="55" width="80" height="85" label="Volume" value="0.9999999776482582" minValue="0" maxValue="2" textColor="#FFFFFFFF" trackForegroundColor="#FFCC9966" trackBackgroundColor="#FF333355">
+        <binding type="amp" level="group" tags="wt" parameter="AMP_VOLUME" translation="linear" translationOutputMin="0.0" translationOutputMax="2.0"/>
+      </labeled-knob>
+    </tab>
+    <keyboard/>
+  </ui>
+  <groups attack="0.01" decay="0.1" sustain="1.0" release="0.5">
+    <group tags="wt" wavetablePosition="0.0" enabled="1" attack="0.02098999960021116" release="2.004999955296516" modVolume="0.9999999776482582" wavetableFrameInterpolation="false">
+      <oscillator waveform="wavetable" wavetableFile="Wavetables/Default Shapes.wav" />
+      <effects/>
+    </group>
+  </groups>
+  <effects/>
+  <tags>
+    <tag name="wt" volume="1" pan="0"/>
+  </tags>
+  <buses/>
+  <midi/>
+  <modulators/>
+  <noteSequences/>
+</DecentSampler>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Wavetable Oscillator LFO Example.dspreset
+
+  Demonstrates an LFO continuously sweeping the wavetable position around a
+  user-defined center value. The LFO's contribution is added on top of the
+  center position (modBehavior="add"), so the sweep is always symmetric.
+
+  Controls:
+    Center    – the base wavetable frame position the LFO sweeps around (0–1)
+    LFO Rate  – sweep speed in Hz (0.1–10)
+    LFO Depth – maximum sweep amount above/below center (0–0.5)
+    Attack / Release / Volume – standard amplitude controls
+-->
+<DecentSampler minVersion="1.19.0">
+  <ui height="375" bgColor="#FF1A1A2E">
+    <tab>
+
+      <label x="20" y="10" width="560" height="20"
+             text="Wavetable Oscillator &#8212; LFO Position Modulation"
+             fontSize="15" textColor="#FFFFFFFF"/>
+      <label x="20" y="32" width="560" height="14"
+             text="LFO sweeps wavetable frames &#183; center + rate + depth controls"
+             fontSize="10" textColor="#FFAAAACC"/>
+
+      <!-- LFO controls -->
+      <labeled-knob x="20"  y="55" width="80" height="85" label="Center"
+                    value="0.5" minValue="0" maxValue="1"
+                    textColor="#FFFFFFFF"
+                    trackForegroundColor="#FF6699FF" trackBackgroundColor="#FF333355">
+        <binding type="general" level="group" tags="wt"
+                 parameter="OSCILLATOR_WAVETABLE_POSITION"
+                 translation="linear"
+                 translationOutputMin="0.0" translationOutputMax="1.0"/>
+      </labeled-knob>
+
+      <labeled-knob x="110" y="55" width="80" height="85" label="LFO Rate"
+                    value="1.0" minValue="0.1" maxValue="10"
+                    textColor="#FFFFFFFF"
+                    trackForegroundColor="#FFCC66FF" trackBackgroundColor="#FF333355">
+        <binding type="modulator" level="instrument" modulatorIndex="0"
+                 parameter="FREQUENCY"
+                 translation="linear"
+                 translationOutputMin="0.1" translationOutputMax="10.0"/>
+      </labeled-knob>
+
+      <labeled-knob x="200" y="55" width="80" height="85" label="LFO Depth"
+                    value="0.25" minValue="0" maxValue="0.5"
+                    textColor="#FFFFFFFF"
+                    trackForegroundColor="#FFCC66FF" trackBackgroundColor="#FF333355">
+        <binding type="modulator" level="instrument" modulatorIndex="0"
+                 parameter="MOD_AMOUNT"
+                 translation="linear"
+                 translationOutputMin="0.0" translationOutputMax="0.5"/>
+      </labeled-knob>
+
+      <!-- Amplitude controls -->
+      <labeled-knob x="380" y="55" width="80" height="85" label="Attack"
+                    value="0.01" minValue="0.001" maxValue="2"
+                    textColor="#FFFFFFFF"
+                    trackForegroundColor="#FF66CC99" trackBackgroundColor="#FF333355">
+        <binding type="amp" level="group" tags="wt"
+                 parameter="ENV_ATTACK"
+                 translation="linear"
+                 translationOutputMin="0.001" translationOutputMax="2.0"/>
+      </labeled-knob>
+
+      <labeled-knob x="470" y="55" width="80" height="85" label="Release"
+                    value="0.5" minValue="0.01" maxValue="4"
+                    textColor="#FFFFFFFF"
+                    trackForegroundColor="#FF66CC99" trackBackgroundColor="#FF333355">
+        <binding type="amp" level="group" tags="wt"
+                 parameter="ENV_RELEASE"
+                 translation="linear"
+                 translationOutputMin="0.01" translationOutputMax="4.0"/>
+      </labeled-knob>
+
+      <labeled-knob x="560" y="55" width="80" height="85" label="Volume"
+                    value="1.0" minValue="0" maxValue="2"
+                    textColor="#FFFFFFFF"
+                    trackForegroundColor="#FFCC9966" trackBackgroundColor="#FF333355">
+        <binding type="amp" level="group" tags="wt"
+                 parameter="AMP_VOLUME"
+                 translation="linear"
+                 translationOutputMin="0.0" translationOutputMax="2.0"/>
+      </labeled-knob>
+
+    </tab>
+    <keyboard/>
+  </ui>
+
+  <groups attack="0.01" decay="0.1" sustain="1.0" release="0.5">
+    <group tags="wt" wavetablePosition="0.5"
+           wavetableFrameInterpolation="true"
+           attack="0.01" release="0.5">
+      <oscillator waveform="wavetable" wavetableFile="Wavetables/Default Shapes.wav"
+                  randomPhase="true"/>
+    </group>
+  </groups>
+
+  <effects/>
+  <tags>
+    <tag name="wt" volume="1" pan="0"/>
+  </tags>
+  <buses/>
+  <midi/>
+
+  <modulators>
+    <!--
+      scope="voice" means each voice gets its own independent LFO phase,
+      so notes don't share a single LFO cycle.
+      modBehavior="add" adds the LFO value on top of the group's wavetablePosition,
+      so the Center knob sets the sweep midpoint.
+    -->
+    <lfo shape="sine" frequency="1.0" modAmount="0.25" scope="voice">
+      <binding type="general" level="group" tags="wt"
+               parameter="OSCILLATOR_WAVETABLE_POSITION"
+               modBehavior="add"
+               translationOutputMin="-0.5" translationOutputMax="0.5"/>
+    </lfo>
+  </modulators>
+
+  <noteSequences/>
+</DecentSampler>
