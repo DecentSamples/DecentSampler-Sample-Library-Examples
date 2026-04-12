@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  FM 6-Operator Oscillator Test
+  Tests the new fm6op waveform type with all 32 DX7 algorithms selectable
+  via a dropdown menu. Knobs control the modulator levels for operators 2,
+  4, and 6. A feedback knob controls operator 1 self-feedback (used in
+  algorithm 32 most prominently). ADSR knobs control the global voice
+  envelope and per‑operator decay.
+-->
+
+<DecentSampler minVersion="1.12.0">
+
+  <ui width="812" height="375" bgColor="FF1A1A2E">
+    <tab name="main">
+
+      <!-- Title label -->
+      <label x="10" y="10" width="400" height="20"
+             text="FM 6-Operator Oscillator Test"
+             textColor="FFE0E0FF" fontSize="16"/>
+
+      <!-- ── Algorithm selector ─────────────────────────────── -->
+      <label x="10" y="40" width="80" height="16"
+             text="Algorithm" textColor="FFB0B0D0" fontSize="11"/>
+      <menu x="10" y="58" width="120" height="22"
+            parameterName="FM Algorithm" value="1">
+        <option name="Alg 1 – Single chain">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="1"/>
+        </option>
+        <option name="Alg 2 – Fork at op 3">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="2"/>
+        </option>
+        <option name="Alg 5 – Three 2-op pairs">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="5"/>
+        </option>
+        <option name="Alg 11 – Two chains">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="11"/>
+        </option>
+        <option name="Alg 13 – Fan to carrier">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="13"/>
+        </option>
+        <option name="Alg 19 – 3 carriers">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="19"/>
+        </option>
+        <option name="Alg 22 – All mod one carrier">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="22"/>
+        </option>
+        <option name="Alg 32 – All carriers + feedback">
+          <binding type="general" level="group" position="0"
+                   parameter="OSCILLATOR_FM_ALGORITHM"
+                   translation="fixed_value" translationValue="32"/>
+        </option>
+      </menu>
+
+      <!-- ── Modulator level knobs ──────────────────────────── -->
+      <label x="160" y="40" width="80" height="16"
+             text="Op 2 Level" textColor="FFB0B0D0" fontSize="11"/>
+      <labeled-knob x="160" y="55" width="70" height="70"
+                    label="Op 2 Lvl" type="float"
+                    minValue="0" maxValue="1" value="0.7"
+                    trackForegroundColor="CC5577FF" textColor="FFB0B0D0">
+        <binding type="general" level="group" position="0"
+                 parameter="OSCILLATOR_FM_OP2_LEVEL"
+                 translation="linear"
+                 translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+
+      <label x="250" y="40" width="80" height="16"
+             text="Op 4 Level" textColor="FFB0B0D0" fontSize="11"/>
+      <labeled-knob x="250" y="55" width="70" height="70"
+                    label="Op 4 Lvl" type="float"
+                    minValue="0" maxValue="1" value="0.5"
+                    trackForegroundColor="CC5577FF" textColor="FFB0B0D0">
+        <binding type="general" level="group" position="0"
+                 parameter="OSCILLATOR_FM_OP4_LEVEL"
+                 translation="linear"
+                 translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+
+      <label x="340" y="40" width="80" height="16"
+             text="Op 6 Level" textColor="FFB0B0D0" fontSize="11"/>
+      <labeled-knob x="340" y="55" width="70" height="70"
+                    label="Op 6 Lvl" type="float"
+                    minValue="0" maxValue="1" value="0.4"
+                    trackForegroundColor="CC5577FF" textColor="FFB0B0D0">
+        <binding type="general" level="group" position="0"
+                 parameter="OSCILLATOR_FM_OP6_LEVEL"
+                 translation="linear"
+                 translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+
+      <!-- ── Feedback knob ─────────────────────────────────── -->
+      <label x="430" y="40" width="80" height="16"
+             text="Feedback" textColor="FFB0B0D0" fontSize="11"/>
+      <labeled-knob x="430" y="55" width="70" height="70"
+                    label="Feedback" type="float"
+                    minValue="0" maxValue="1" value="0.0"
+                    trackForegroundColor="CCFF9955" textColor="FFB0B0D0">
+        <binding type="general" level="group" position="0"
+                 parameter="OSCILLATOR_FM_OP1_FEEDBACK"
+                 translation="linear"
+                 translationOutputMin="0" translationOutputMax="1"/>
+      </labeled-knob>
+
+      <!-- ── Op 2 ratio knob ───────────────────────────────── -->
+      <label x="520" y="40" width="80" height="16"
+             text="Op 2 Ratio" textColor="FFB0B0D0" fontSize="11"/>
+      <labeled-knob x="520" y="55" width="70" height="70"
+                    label="Op 2 Ratio" type="float"
+                    minValue="0.5" maxValue="8" value="2.0"
+                    trackForegroundColor="CC55FF99" textColor="FFB0B0D0">
+        <binding type="general" level="group" position="0"
+                 parameter="OSCILLATOR_FM_OP2_RATIO"
+                 translation="linear"
+                 translationOutputMin="0.5" translationOutputMax="8.0"/>
+      </labeled-knob>
+
+      <!-- ── ADSR ──────────────────────────────────────────── -->
+      <label x="10" y="150" width="400" height="16"
+             text="Voice Envelope" textColor="FFB0B0D0" fontSize="11"/>
+
+      <labeled-knob x="10"  y="168" width="60" height="60"
+                    label="Attack" type="float"
+                    minValue="0" maxValue="4" value="0.01"
+                    trackForegroundColor="CCFFCC44" textColor="FFB0B0D0">
+        <binding type="amp" level="group" position="0" parameter="ENV_ATTACK"/>
+      </labeled-knob>
+      <labeled-knob x="80"  y="168" width="60" height="60"
+                    label="Decay" type="float"
+                    minValue="0" maxValue="4" value="0.5"
+                    trackForegroundColor="CCFFCC44" textColor="FFB0B0D0">
+        <binding type="amp" level="group" position="0" parameter="ENV_DECAY"/>
+      </labeled-knob>
+      <labeled-knob x="150" y="168" width="60" height="60"
+                    label="Sustain" type="float"
+                    minValue="0" maxValue="1" value="0.7"
+                    trackForegroundColor="CCFFCC44" textColor="FFB0B0D0">
+        <binding type="amp" level="group" position="0" parameter="ENV_SUSTAIN"/>
+      </labeled-knob>
+      <labeled-knob x="220" y="168" width="60" height="60"
+                    label="Release" type="float"
+                    minValue="0" maxValue="4" value="0.3"
+                    trackForegroundColor="CCFFCC44" textColor="FFB0B0D0">
+        <binding type="amp" level="group" position="0" parameter="ENV_RELEASE"/>
+      </labeled-knob>
+
+      <!-- ── Info label ─────────────────────────────────────── -->
+      <label x="10" y="240" width="790" height="15"
+             text="Algorithm 5 = 3 independent 2-op pairs (good for additive-FM blend).  Algorithm 32 = all carriers + op1 self-feedback (bright organ)."
+             textColor="FF8080A0" fontSize="10"/>
+      <label x="10" y="257" width="790" height="15"
+             text="Op levels 1,3,5 are fixed carriers (level=1). Knobs above control modulator ops 2,4,6."
+             textColor="FF8080A0" fontSize="10"/>
+
+    </tab>
+  </ui>
+
+  <groups>
+    <!--
+      Single group with one FM6 oscillator.
+      Algorithm 5 (three 2-op pairs) is a good starting point: each
+      pair [op2→op1], [op4→op3], [op6→op5] acts independently.
+      Carriers: op1, op3, op5   Modulators: op2, op4, op6
+    -->
+    <group volume="1.0" attack="0.01" decay="0.5" sustain="0.7" release="0.3"
+
+           fmAlgorithm="5"
+
+           fmOp1Ratio="1.0"  fmOp1Level="1.0"  fmOp1Feedback="0.0"
+           fmOp2Ratio="2.0"  fmOp2Level="0.7"  fmOp2Feedback="0.0"
+           fmOp3Ratio="1.0"  fmOp3Level="1.0"  fmOp3Feedback="0.0"
+           fmOp4Ratio="7.0"  fmOp4Level="0.5"  fmOp4Feedback="0.0"
+           fmOp5Ratio="1.0"  fmOp5Level="1.0"  fmOp5Feedback="0.0"
+           fmOp6Ratio="14.0" fmOp6Level="0.4"  fmOp6Feedback="0.0">
+
+      <oscillator waveform="fm6op"
+                  loNote="0" hiNote="127" rootNote="60"
+                  loVel="0"  hiVel="127"
+                  volume="1.0"
+                  />
+
+    </group>
+  </groups>
+
+</DecentSampler>

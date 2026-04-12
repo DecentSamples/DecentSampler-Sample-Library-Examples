@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  FM6 - DX7 Classics
+  Five iconic DX7-style sounds in one preset. Select from the dropdown.
+
+  UI controls (position index for bindings):
+    0 – label  : title "FM6 – DX7 Classics"
+    1 – label  : "Sound" sub-label
+    2 – menu   : Sound selector
+    3 – label  : description (updated by menu bindings)
+    4 – label  : algorithm info (updated by menu bindings)
+-->
+
+<DecentSampler minVersion="1.12.0">
+
+  <ui width="812" height="375" bgColor="FF080810">
+    <tab name="main">
+
+      <!-- ── Title ────────────────────────────────────────────────── -->
+      <!-- position 0 -->
+      <label x="20" y="10" width="560" height="28"
+             text="FM6 – DX7 Classics"
+             textColor="FFD8D8FF" fontSize="22"/>
+
+      <!-- ── Sound selector ────────────────────────────────────────── -->
+      <!-- position 1 -->
+      <label x="20" y="47" width="60" height="15"
+             text="Sound" textColor="FF8080AA" fontSize="11"/>
+
+      <!-- position 2 -->
+      <menu x="20" y="63" width="240" height="26"
+            parameterName="Sound" value="1"
+            textColor="FFFFFFFF" backgroundColour="FF141430"
+            outlineColor="FF5555AA">
+
+        <option name="E Piano">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Bright, bell-like percussive tone with fast modulator decay. Sustain a note for a long, warm tail."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 5 · Three 2-op carrier pairs · Carriers: Op1 Op3 Op5 · Modulators: Op2 Op4 (ratio 14×) Op6 (ratio 7×, feedback)"/>
+        </option>
+
+        <option name="Slap Bass">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Tight percussive bass with a slap click. All operators decay fully to silence — velocity gives punch."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 1 · Single chain Op6→Op5→Op4→Op3→Op2→Op1 · Carrier at 0.5× (sub-octave) · Op6 self-feedback"/>
+        </option>
+
+        <option name="Brass">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Bright brass ensemble with a fast attack swell. Three carriers for layered harmonic richness. Sustain to hold the note."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 28 · Carriers: Op1 Op3 Op6 · Op5 self-feedback (fmOp5Feedback) feeds into Op4→Op3 chain"/>
+        </option>
+
+        <option name="Bell">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Long-ringing metallic bell. Inharmonic partials at 2.756× and 5× recreate the characteristic bell clang."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 5 · Inharmonic ratios 1× / 2.756× / 5× · Long carrier decays · All sustains zero"/>
+        </option>
+
+        <option name="Strings Pad">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Lush pad with a 1.5 s slow attack. Slightly detuned operator pairs create a gentle chorus shimmer."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 32 · All 6 ops are carriers · Detuned pairs: 1/1.003, 2/2.005, 3/3.007 · Op6 self-feedback"/>
+        </option>
+
+        <option name="Vibraphone">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Clean, warm mallet-struck tone. Low-index modulation (3×) adds subtle harmonic sheen without harshness."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 5 · Three 2-op pairs · Carriers at 1× · Modulators at 3× for soft overtone colour"/>
+        </option>
+
+        <option name="Drawbar Organ">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Six independent carriers at harmonic ratios 1/2/3/4/6/8× mimic drawbar pulls. Cuts off cleanly on key release."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 32 · All 6 carriers · Ratios 1/2/3/4/6/8× · Op6 self-feedback adds vintage warmth"/>
+        </option>
+
+        <option name="Synth Lead">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Cutting monophonic lead. Two carrier stacks; self-feedback at the top of the first stack adds gritty buzz."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 3 · Two 3-op stacks · Carriers: Op1 Op4 · Op6 feedback (fmOp6Feedback) drives brassy edge"/>
+        </option>
+
+        <option name="Choir Pad">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Slow-attack vowel pad. A shared Op6 modulator drives two slightly detuned carriers for ensemble shimmer."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 19 · Carriers: Op4 (1×) Op5 (1.003×) + Op1 chain · Shared Op6 mod creates formant-like quality"/>
+        </option>
+
+        <option name="FM Clavinet">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="2" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="3" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="4" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="5" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="6" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="7" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="8" parameter="ENABLED" translation="fixed_value" translationValue="false"/>
+          <binding type="general" level="group" position="9" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
+          <binding type="control" level="ui" position="3" parameter="TEXT" translation="fixed_value"
+                   translationValue="Funky wiry clav tone. A 4-op chain gives the nasal body; Op2 self-feedback cuts through the mix."/>
+          <binding type="control" level="ui" position="4" parameter="TEXT" translation="fixed_value"
+                   translationValue="Algorithm 2 · 4-op chain (Op6→Op5→Op4→Op3) + Op1 + Op2 (fmOp2Feedback) · All sustains zero"/>
+        </option>
+
+      </menu>
+
+      <!-- ── Dynamic description labels ─────────────────────────────── -->
+      <!-- position 3 -->
+      <label x="20" y="100" width="780" height="18"
+             text="Bright, bell-like percussive tone with fast modulator decay. Sustain a note for a long, warm tail."
+             textColor="FF9090BE" fontSize="11"/>
+      <!-- position 4 -->
+      <label x="20" y="120" width="780" height="15"
+             text="Algorithm 5 · Three 2-op carrier pairs · Carriers: Op1 Op3 Op5 · Modulators: Op2 Op4 (ratio 14×)  Op6 (ratio 7×, feedback)"
+             textColor="FF565680" fontSize="10"/>
+
+    </tab>
+  </ui>
+
+  <groups>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 0 – E Piano   (Algorithm 5, three 2-op pairs)
+         Carriers: Op1(0) Op3(2) Op5(4)   Modulators: Op2(1) Op4(3) Op6(5,fb)
+         Op2 and Op4 are high-ratio (14×) modulators that decay quickly,
+         giving the characteristic bell-struck transient. Op6 (7×, fb=0.15)
+         adds warmth. Each carrier has a long decay and moderate sustain,
+         mimicking the DX7 EP-1 "Rhodes" feel.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="epiano" volume="0.4"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="5"
+           fmOp1Ratio="1.0"   fmOp1Level="1.0"
+           fmOp1Attack="0.001" fmOp1Decay="4.0"  fmOp1Sustain="0.60" fmOp1Release="1.5"
+           fmOp2Ratio="14.0"  fmOp2Level="0.72"
+           fmOp2Attack="0.001" fmOp2Decay="0.5"  fmOp2Sustain="0.0"  fmOp2Release="0.3"
+           fmOp3Ratio="1.0"   fmOp3Level="0.85"
+           fmOp3Attack="0.001" fmOp3Decay="4.0"  fmOp3Sustain="0.50" fmOp3Release="1.2"
+           fmOp4Ratio="14.0"  fmOp4Level="0.55"
+           fmOp4Attack="0.001" fmOp4Decay="0.4"  fmOp4Sustain="0.0"  fmOp4Release="0.2"
+           fmOp5Ratio="1.0"   fmOp5Level="0.55"
+           fmOp5Attack="0.001" fmOp5Decay="4.0"  fmOp5Sustain="0.40" fmOp5Release="0.9"
+           fmOp6Ratio="7.0"   fmOp6Level="0.30"  fmOp6Feedback="0.15"
+           fmOp6Attack="0.001" fmOp6Decay="0.35" fmOp6Sustain="0.0"  fmOp6Release="0.2">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 1 – Slap Bass   (Algorithm 1, single chain)
+         Chain: Op6(5,fb)→Op5(4)→Op4(3)→Op3(2)→Op2(1)→Op1(0,carrier)
+         Op1 ratio = 0.5 (one octave down for deep sub-bass). Upper
+         modulators use ascending ratios and short decays — Op5 (8×, 120 ms)
+         creates the snap click; Op6 self-feedback adds transient grit.
+         All sustains = 0; sound fully decays without key release.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="slapbass" volume="0.85"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="1"
+           fmOp1Ratio="0.5"  fmOp1Level="1.0"
+           fmOp1Attack="0.001" fmOp1Decay="1.0"  fmOp1Sustain="0.0"  fmOp1Release="0.15"
+           fmOp2Ratio="1.0"  fmOp2Level="0.80"
+           fmOp2Attack="0.001" fmOp2Decay="0.50" fmOp2Sustain="0.0"  fmOp2Release="0.1"
+           fmOp3Ratio="2.0"  fmOp3Level="0.55"
+           fmOp3Attack="0.001" fmOp3Decay="0.25" fmOp3Sustain="0.0"  fmOp3Release="0.1"
+           fmOp4Ratio="4.0"  fmOp4Level="0.65"
+           fmOp4Attack="0.001" fmOp4Decay="0.18" fmOp4Sustain="0.0"  fmOp4Release="0.1"
+           fmOp5Ratio="8.0"  fmOp5Level="0.35"
+           fmOp5Attack="0.001" fmOp5Decay="0.12" fmOp5Sustain="0.0"  fmOp5Release="0.1"
+           fmOp6Ratio="1.0"  fmOp6Level="0.45"  fmOp6Feedback="0.4"
+           fmOp6Attack="0.001" fmOp6Decay="0.40" fmOp6Sustain="0.0"  fmOp6Release="0.1">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 2 – Brass   (Algorithm 28)
+         op(5,0) + op(2, op(3, op_fb(4,0))) + op(0, op(1,0))
+         Three carriers: fmOp1(0), fmOp3(2), fmOp6(5).
+         Feedback on fmOp5(4) via fmOp5Feedback.
+         All operators at 1× ratio (unison). Modulators decay from the
+         initial swell to a sustained brightness — typical DX7 brass feel.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="brass" volume="0.4"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="28"
+           fmOp1Ratio="1.0"  fmOp1Level="0.85"
+           fmOp1Attack="0.06" fmOp1Decay="0.0" fmOp1Sustain="1.0"  fmOp1Release="0.1"
+           fmOp2Ratio="1.0"  fmOp2Level="0.70"
+           fmOp2Attack="0.06" fmOp2Decay="0.3" fmOp2Sustain="0.60" fmOp2Release="0.05"
+           fmOp3Ratio="1.0"  fmOp3Level="0.75"
+           fmOp3Attack="0.07" fmOp3Decay="0.0" fmOp3Sustain="1.0"  fmOp3Release="0.1"
+           fmOp4Ratio="1.0"  fmOp4Level="0.50"
+           fmOp4Attack="0.05" fmOp4Decay="0.3" fmOp4Sustain="0.45" fmOp4Release="0.05"
+           fmOp5Ratio="1.0"  fmOp5Level="0.40"  fmOp5Feedback="0.3"
+           fmOp5Attack="0.05" fmOp5Decay="0.35" fmOp5Sustain="0.35" fmOp5Release="0.05"
+           fmOp6Ratio="1.0"  fmOp6Level="0.65"
+           fmOp6Attack="0.06" fmOp6Decay="0.0" fmOp6Sustain="0.90" fmOp6Release="0.1">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 3 – Bell   (Algorithm 5, inharmonic ratios)
+         Same topology as E Piano but with inharmonic frequency ratios.
+         Ratio 2.756× approximates the characteristic stretched partial
+         of a real bell; 5× adds a high metallic shimmer.
+         All sustains = 0; long carrier decays produce the natural ring.
+         Op6 feedback 0.05 adds a subtle metallic edge at the attack.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="bell" volume="0.42"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="5"
+           fmOp1Ratio="1.0"   fmOp1Level="1.0"
+           fmOp1Attack="0.001" fmOp1Decay="7.0"  fmOp1Sustain="0.0"  fmOp1Release="2.5"
+           fmOp2Ratio="14.0"  fmOp2Level="0.85"
+           fmOp2Attack="0.001" fmOp2Decay="0.7"  fmOp2Sustain="0.0"  fmOp2Release="0.35"
+           fmOp3Ratio="2.756" fmOp3Level="0.65"
+           fmOp3Attack="0.001" fmOp3Decay="5.5"  fmOp3Sustain="0.0"  fmOp3Release="2.0"
+           fmOp4Ratio="2.756" fmOp4Level="0.50"
+           fmOp4Attack="0.001" fmOp4Decay="0.5"  fmOp4Sustain="0.0"  fmOp4Release="0.25"
+           fmOp5Ratio="5.0"   fmOp5Level="0.35"
+           fmOp5Attack="0.001" fmOp5Decay="3.0"  fmOp5Sustain="0.0"  fmOp5Release="1.0"
+           fmOp6Ratio="5.0"   fmOp6Level="0.20"  fmOp6Feedback="0.05"
+           fmOp6Attack="0.001" fmOp6Decay="0.25" fmOp6Sustain="0.0"  fmOp6Release="0.2">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 4 – Strings Pad   (Algorithm 32, all carriers + feedback)
+         op_fb(5,0) + op(4,0) + op(3,0) + op(2,0) + op(1,0) + op(0,0)
+         All six operators act as independent carriers. Operator pairs are
+         slightly detuned (1/1.003, 2/2.005, 3/3.007) to create beating
+         that mimics the chorus shimmer of a string section.
+         Outer ADSR attack = 1.5 s gives the characteristic slow pad swell.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="strings" volume="0.32"
+           attack="1.5" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="32"
+           fmOp1Ratio="1.0"   fmOp1Level="0.75"
+           fmOp1Attack="0.002" fmOp1Decay="0.0" fmOp1Sustain="1.0" fmOp1Release="2.5"
+           fmOp2Ratio="1.003" fmOp2Level="0.65"
+           fmOp2Attack="0.002" fmOp2Decay="0.0" fmOp2Sustain="1.0" fmOp2Release="2.5"
+           fmOp3Ratio="2.0"   fmOp3Level="0.45"
+           fmOp3Attack="0.002" fmOp3Decay="0.0" fmOp3Sustain="1.0" fmOp3Release="2.0"
+           fmOp4Ratio="2.005" fmOp4Level="0.35"
+           fmOp4Attack="0.002" fmOp4Decay="0.0" fmOp4Sustain="1.0" fmOp4Release="2.0"
+           fmOp5Ratio="3.0"   fmOp5Level="0.25"
+           fmOp5Attack="0.002" fmOp5Decay="0.0" fmOp5Sustain="1.0" fmOp5Release="1.5"
+           fmOp6Ratio="3.007" fmOp6Level="0.20"  fmOp6Feedback="0.15"
+           fmOp6Attack="0.002" fmOp6Decay="0.0" fmOp6Sustain="1.0" fmOp6Release="1.5">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 5 – Vibraphone   (Algorithm 5, three 2-op pairs)
+         Same topology as E Piano but with low-index modulation (3×)
+         instead of the high-ratio 14× piano mods. The result is clean,
+         warm, and bell-like without the harsh DX-EP transient. Each
+         carrier decays freely to zero; holding the key sustains nothing.
+         Op6 has a tiny feedback amount (0.05) for a barely-perceptible
+         metallic shimmer at the very start of each note.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="vibraphone" volume="0.45"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="5"
+           fmOp1Ratio="1.0"  fmOp1Level="1.0"
+           fmOp1Attack="0.001" fmOp1Decay="3.0"  fmOp1Sustain="0.0"  fmOp1Release="1.5"
+           fmOp2Ratio="3.0"  fmOp2Level="0.35"
+           fmOp2Attack="0.001" fmOp2Decay="0.10" fmOp2Sustain="0.0"  fmOp2Release="0.08"
+           fmOp3Ratio="1.0"  fmOp3Level="0.70"
+           fmOp3Attack="0.001" fmOp3Decay="2.5"  fmOp3Sustain="0.0"  fmOp3Release="1.2"
+           fmOp4Ratio="3.0"  fmOp4Level="0.28"
+           fmOp4Attack="0.001" fmOp4Decay="0.08" fmOp4Sustain="0.0"  fmOp4Release="0.07"
+           fmOp5Ratio="1.0"  fmOp5Level="0.50"
+           fmOp5Attack="0.001" fmOp5Decay="2.0"  fmOp5Sustain="0.0"  fmOp5Release="0.90"
+           fmOp6Ratio="3.0"  fmOp6Level="0.20"  fmOp6Feedback="0.05"
+           fmOp6Attack="0.001" fmOp6Decay="0.07" fmOp6Sustain="0.0"  fmOp6Release="0.06">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 6 – Drawbar Organ   (Algorithm 32, all 6 carriers)
+         Six independent sine-wave carriers at harmonic ratios modelling
+         drawbar pulls: 1′/2′/4′/8′/etc. mapped to 8/6/4/3/2/1×.
+         All operators are fully sustained while the key is held, then
+         cut to silence quickly (~50 ms) on key release — the click-off
+         that makes tonewheel organs feel alive.
+         A small Op6 self-feedback (0.08) rounds off the pure-sine tone
+         with a gentle vintage edge, as a real tonewheel would.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="organ" volume="0.35"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="32"
+           fmOp1Ratio="1.0"  fmOp1Level="0.85"
+           fmOp1Attack="0.001" fmOp1Decay="0.0" fmOp1Sustain="1.0"  fmOp1Release="0.05"
+           fmOp2Ratio="2.0"  fmOp2Level="0.65"
+           fmOp2Attack="0.001" fmOp2Decay="0.0" fmOp2Sustain="1.0"  fmOp2Release="0.05"
+           fmOp3Ratio="3.0"  fmOp3Level="0.45"
+           fmOp3Attack="0.001" fmOp3Decay="0.0" fmOp3Sustain="1.0"  fmOp3Release="0.05"
+           fmOp4Ratio="4.0"  fmOp4Level="0.30"
+           fmOp4Attack="0.001" fmOp4Decay="0.0" fmOp4Sustain="1.0"  fmOp4Release="0.05"
+           fmOp5Ratio="6.0"  fmOp5Level="0.18"
+           fmOp5Attack="0.001" fmOp5Decay="0.0" fmOp5Sustain="1.0"  fmOp5Release="0.05"
+           fmOp6Ratio="8.0"  fmOp6Level="0.10"  fmOp6Feedback="0.08"
+           fmOp6Attack="0.001" fmOp6Decay="0.0" fmOp6Sustain="1.0"  fmOp6Release="0.05">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 7 – Synth Lead   (Algorithm 3, two 3-op stacks)
+         op(3, op(4, op_fb(5,0))) + op(0, op(1, op(2,0)))
+         Carriers: Op1 (fmOp1) and Op4 (fmOp4).
+         Stack A (Op1←Op2←Op3): clean harmonic stack at 1/1/2× providing
+         the body of the lead. Stack B (Op4←Op5←Op6): Op6 self-feedback
+         (fmOp6Feedback=0.45) drives a buzzy, brassy edge. Both stacks
+         sustain fully while held. Slight attack ramp (5 ms) prevents
+         clicking. Thin modulator decay adds brightening swell to onset.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="lead" volume="0.40"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="3"
+           fmOp1Ratio="1.0"  fmOp1Level="0.85"
+           fmOp1Attack="0.005" fmOp1Decay="0.0"  fmOp1Sustain="1.0"  fmOp1Release="0.12"
+           fmOp2Ratio="1.0"  fmOp2Level="0.70"
+           fmOp2Attack="0.003" fmOp2Decay="0.40" fmOp2Sustain="0.70" fmOp2Release="0.08"
+           fmOp3Ratio="2.0"  fmOp3Level="0.45"
+           fmOp3Attack="0.003" fmOp3Decay="0.30" fmOp3Sustain="0.50" fmOp3Release="0.08"
+           fmOp4Ratio="1.0"  fmOp4Level="0.80"
+           fmOp4Attack="0.005" fmOp4Decay="0.0"  fmOp4Sustain="1.0"  fmOp4Release="0.12"
+           fmOp5Ratio="1.0"  fmOp5Level="0.60"
+           fmOp5Attack="0.003" fmOp5Decay="0.35" fmOp5Sustain="0.65" fmOp5Release="0.08"
+           fmOp6Ratio="1.0"  fmOp6Level="0.40"  fmOp6Feedback="0.45"
+           fmOp6Attack="0.003" fmOp6Decay="0.25" fmOp6Sustain="0.45" fmOp6Release="0.08">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 8 – Choir Pad   (Algorithm 19)
+         t = op_fb(5, 0); op(4, t) + op(3, t) + op(0, op(1, op(2,0)))
+         Carriers: Op4 (fmOp5, 1×), Op5 (fmOp4, 1.003×), Op1 (fmOp1, 1×).
+         The shared modulator (Op6, fmOp6) drives both Op4 and Op5; their
+         slight frequency difference (1× vs 1.003×) creates a slow beating
+         like a choir's natural pitch spread. The 3-op chain (Op1←Op2←Op3)
+         adds a mid-frequency body. All carriers attack slowly (~800-900 ms)
+         for the characteristic vowel swell. Small Op6 feedback (0.08) adds
+         gentle formant edge without harshness.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="choir" volume="0.35"
+           attack="1.0" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="19"
+           fmOp1Ratio="1.0"   fmOp1Level="0.60"
+           fmOp1Attack="0.80" fmOp1Decay="0.0"  fmOp1Sustain="1.0"  fmOp1Release="1.5"
+           fmOp2Ratio="1.0"   fmOp2Level="0.50"
+           fmOp2Attack="0.50" fmOp2Decay="1.00" fmOp2Sustain="0.50" fmOp2Release="1.0"
+           fmOp3Ratio="3.0"   fmOp3Level="0.35"
+           fmOp3Attack="0.30" fmOp3Decay="0.50" fmOp3Sustain="0.30" fmOp3Release="0.5"
+           fmOp4Ratio="1.003" fmOp4Level="0.75"
+           fmOp4Attack="0.90" fmOp4Decay="0.0"  fmOp4Sustain="1.0"  fmOp4Release="1.5"
+           fmOp5Ratio="1.0"   fmOp5Level="0.85"
+           fmOp5Attack="0.90" fmOp5Decay="0.0"  fmOp5Sustain="1.0"  fmOp5Release="1.5"
+           fmOp6Ratio="1.0"   fmOp6Level="0.30"  fmOp6Feedback="0.08"
+           fmOp6Attack="0.50" fmOp6Decay="0.30" fmOp6Sustain="0.20" fmOp6Release="0.5">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         Group 9 – FM Clavinet   (Algorithm 2)
+         op(2, op(3, op(4, op(5,0)))) + op(0, op_fb(1,0))
+         Carriers: Op3 (fmOp3) driven by 4-op chain, Op1 (fmOp1) driven
+         by Op2 (fmOp2) with self-feedback.
+         The 4-op chain (fmOp6→fmOp5→fmOp4→fmOp3) provides the nasal,
+         wiry body: each deeper op adds ascending ratios (1/2/3/6×). The
+         short 2-op stack (fmOp2, feedback=0.35 → fmOp1) cuts through with
+         the characteristic clavinet bite. All operators sustain=0; the
+         sound fully decays on its own whether the key is held or not.
+         ════════════════════════════════════════════════════════════════ -->
+    <group tags="clavinet" volume="0.50"
+           attack="0.001" decay="0" sustain="1.0" release="20"
+           fmAlgorithm="2"
+           fmOp1Ratio="1.0"  fmOp1Level="0.90"
+           fmOp1Attack="0.001" fmOp1Decay="2.0"  fmOp1Sustain="0.0"  fmOp1Release="0.15"
+           fmOp2Ratio="1.0"  fmOp2Level="0.70"  fmOp2Feedback="0.35"
+           fmOp2Attack="0.001" fmOp2Decay="0.60" fmOp2Sustain="0.0"  fmOp2Release="0.10"
+           fmOp3Ratio="1.0"  fmOp3Level="0.80"
+           fmOp3Attack="0.001" fmOp3Decay="1.50" fmOp3Sustain="0.0"  fmOp3Release="0.12"
+           fmOp4Ratio="2.0"  fmOp4Level="0.60"
+           fmOp4Attack="0.001" fmOp4Decay="0.50" fmOp4Sustain="0.0"  fmOp4Release="0.10"
+           fmOp5Ratio="3.0"  fmOp5Level="0.40"
+           fmOp5Attack="0.001" fmOp5Decay="0.25" fmOp5Sustain="0.0"  fmOp5Release="0.10"
+           fmOp6Ratio="6.0"  fmOp6Level="0.25"
+           fmOp6Attack="0.001" fmOp6Decay="0.12" fmOp6Sustain="0.0"  fmOp6Release="0.10">
+      <oscillator waveform="fm6op" loNote="0" hiNote="127" rootNote="60" loVel="0" hiVel="127" volume="1.0"/>
+    </group>
+
+  </groups>
+
+</DecentSampler>
