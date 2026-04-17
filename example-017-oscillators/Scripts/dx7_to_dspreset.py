@@ -10,12 +10,13 @@ Supports 32-voice bulk dumps (4104 bytes, the common .syx format).
 Multiple concatenated bulk dumps in one file are also handled.
 
 What is translated:
-  Algorithm, operator output levels, frequency ratios, EG rates/levels
-  (approximated as ADSR), and the feedback operator + amount.
+  Algorithm, operator output levels (0–99 → linear amplitude), frequency
+  ratios, native DX7 EG rates/levels (R1–R4, L1–L4, range 0–99), and the
+  feedback operator + amount.
 
 What is dropped:
-  Keyboard level scaling, velocity sensitivity, LFO, pitch EG, transpose,
-  and fixed-frequency operators (those fall back to ratio 1×).
+  Keyboard level scaling, velocity sensitivity, LFO, pitch EG, and
+  transpose.
 """
 
 import sys
@@ -25,15 +26,22 @@ from xml.dom import minidom
 
 
 # ---------------------------------------------------------------------------
-# DX7 EG rate (0–99) → approximate time in seconds.
-# Maps exponentially: rate 99 ≈ 1 ms, rate 0 ≈ 20 s.
+# DX7 output level / EG level (0–99) → linear amplitude.
+#
+# Derived from Dexed's msfa engine (env.cc scaleoutlevel + fm_core.cc Exp2):
+#   scaleoutlevel(n) = 28 + n          for n >= 20
+#   scaleoutlevel(n) = LEVELLUT[n]     for n <  20
+#   amplitude = 2^((scaleoutlevel(n) - 127) / 8)
+# Reference: output_level 99 → scaleoutlevel 127 → amplitude 1.0.
 # ---------------------------------------------------------------------------
-def eg_rate_to_sec(rate: int) -> float:
-    rate = max(0, min(99, int(rate)))
-    if rate >= 99:
-        return 0.001
-    return round(0.001 * (20_000 ** ((99 - rate) / 99.0)), 4)
+_LEVELLUT = [0, 5, 9, 13, 17, 20, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 42, 43, 45, 46]
 
+def _scale_level(n: int) -> int:
+    return (28 + n) if n >= 20 else _LEVELLUT[n]
+
+def _dx7_amplitude(level: int) -> float:
+    """Output level (0-99) → linear amplitude, normalised so level 99 = 1.0."""
+    return round(2.0 ** ((_scale_level(level) - 127) / 8.0), 4)
 
 # ---------------------------------------------------------------------------
 # For each DX7 algorithm (1–32), which fmOpN (1-indexed) carries feedback.
@@ -123,17 +131,20 @@ def parse_syx(path: str) -> list:
 
 
 # ---------------------------------------------------------------------------
-# Preset generation
-# ---------------------------------------------------------------------------
-def _group_attrs(voice: dict, enabled: bool) -> dict:
+def _group_attrs(voice: dict, enabled: bool = True) -> dict:
     """
     Build the flat attribute dict for a <group> element from a voice dict.
     """
     alg       = voice["algorithm"]
     fb_op     = ALG_FEEDBACK_OP.get(alg, 6)
-    fb_amount = round(voice["feedback"] / 7.0 * 0.5, 4)  # 0–7  →  0.0–0.5
+    # DX7 feedback is exponential (bit-shift): fb_shift = 8 - feedback (for 1-7)
+    # DS formula: opFeedback = out * feedback * kFeedbackScale (kFeedbackScale = π²)
+    # Correct mapping: DS feedback_param = 2^(dx7_fb - 7)  (range 1/64 to 1.0)
+    _fb = voice["feedback"]
+    fb_amount = round(0.0 if _fb == 0 else 2.0 ** (_fb - 7), 8)  # DX7 0-7 → DS value
 
     attrs = {
+        "name":    voice["name"],
         "enabled": "true" if enabled else "false",
         "volume":  "0.5",
         "attack":  "0.001",
@@ -144,14 +155,10 @@ def _group_attrs(voice: dict, enabled: bool) -> dict:
     }
 
     for n, op in voice["ops"].items():
-        r       = op["eg_r"]
-        l       = op["eg_l"]
-        level   = round(op["output_level"] / 99.0, 4)
-        ratio   = round(op["ratio"], 4)
-        attack  = eg_rate_to_sec(r[0])
-        decay   = eg_rate_to_sec(r[1])
-        sustain = round(l[2] / 99.0, 4)  # EG L3 = sustained target level
-        release = eg_rate_to_sec(r[3])
+        r     = op["eg_r"]
+        l     = op["eg_l"]
+        level = _dx7_amplitude(op["output_level"])
+        ratio = round(op["ratio"], 4)
 
         p = f"fmOp{n}"
         if op["fixed"]:
@@ -159,11 +166,17 @@ def _group_attrs(voice: dict, enabled: bool) -> dict:
             attrs[f"{p}FixedFreq"] = str(op["fixed_freq"])
         else:
             attrs[f"{p}Ratio"] = str(ratio)
-        attrs[f"{p}Level"]   = str(level)
-        attrs[f"{p}Attack"]  = str(attack)
-        attrs[f"{p}Decay"]   = str(decay)
-        attrs[f"{p}Sustain"] = str(sustain)
-        attrs[f"{p}Release"] = str(release)
+        attrs[f"{p}Level"]  = str(level)
+        # Emit native DX7 rate/level EG — no lossy ADSR approximation.
+        attrs[f"{p}EgType"]  = "dx7"
+        attrs[f"{p}EgRate1"] = str(r[0])
+        attrs[f"{p}EgRate2"] = str(r[1])
+        attrs[f"{p}EgRate3"] = str(r[2])
+        attrs[f"{p}EgRate4"] = str(r[3])
+        attrs[f"{p}EgLevel1"] = str(l[0])
+        attrs[f"{p}EgLevel2"] = str(l[1])
+        attrs[f"{p}EgLevel3"] = str(l[2])
+        attrs[f"{p}EgLevel4"] = str(l[3])
         if n == fb_op:
             attrs[f"{p}Feedback"] = str(fb_amount)
 
