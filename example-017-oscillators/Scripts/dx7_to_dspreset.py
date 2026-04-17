@@ -63,14 +63,26 @@ def _unpack_operator(voice_bytes: bytes, dx7_op: int) -> dict:
     fine   = b[16] & 0x7F          # 0-99
     if mode == 0:
         # Ratio mode: coarse 0 = 0.5×, else coarse + fine/100
-        ratio = 0.5 if coarse == 0 else float(coarse) + fine / 100.0
+        ratio     = 0.5 if coarse == 0 else float(coarse) + fine / 100.0
+        fixed     = False
+        fixed_freq = None
     else:
-        ratio = 1.0  # fixed-frequency: not representable, default to 1×
+        # Fixed-frequency mode.  The DX7 encodes frequency using only the
+        # lower 2 bits of coarse as a decade selector (0→1Hz, 1→10Hz,
+        # 2→100Hz, 3→1000Hz), with fine providing fractional scaling:
+        #   freq_Hz = 10^(coarse & 3) * 10^(fine / 100)
+        # This matches Dexed's OperatorEditor display formula:
+        #   freq = pow(10, coarse & 3) * exp(ln(10) * fine / 100)
+        ratio      = 1.0   # ignored when fixed=True
+        fixed      = True
+        fixed_freq = round((10.0 ** (coarse & 3)) * (10.0 ** (fine / 100.0)), 4)
     return {
         "eg_r":         [b[0], b[1], b[2], b[3]],
         "eg_l":         [b[4], b[5], b[6], b[7]],
         "output_level": b[14] & 0x7F,
         "ratio":        ratio,
+        "fixed":        fixed,
+        "fixed_freq":   fixed_freq,
     }
 
 
@@ -142,7 +154,11 @@ def _group_attrs(voice: dict, enabled: bool) -> dict:
         release = eg_rate_to_sec(r[3])
 
         p = f"fmOp{n}"
-        attrs[f"{p}Ratio"]   = str(ratio)
+        if op["fixed"]:
+            attrs[f"{p}Mode"]      = "fixed"
+            attrs[f"{p}FixedFreq"] = str(op["fixed_freq"])
+        else:
+            attrs[f"{p}Ratio"] = str(ratio)
         attrs[f"{p}Level"]   = str(level)
         attrs[f"{p}Attack"]  = str(attack)
         attrs[f"{p}Decay"]   = str(decay)
