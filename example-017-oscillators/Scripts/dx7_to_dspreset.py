@@ -48,7 +48,7 @@ def _dx7_amplitude(level: int) -> float:
 # Derived from FM6OperatorOscillator.h.
 # ---------------------------------------------------------------------------
 ALG_FEEDBACK_OP = {
-     1: 6,  2: 2,  3: 6,  4: 4,  5: 6,  6: 5,  7: 6,  8: 4,
+     1: 6,  2: 2,  3: 6,  4: 6,  5: 6,  6: 6,  7: 6,  8: 4,
      9: 2, 10: 3, 11: 6, 12: 2, 13: 6, 14: 6, 15: 2, 16: 6,
     17: 2, 18: 3, 19: 6, 20: 3, 21: 3, 22: 6, 23: 6, 24: 6,
     25: 6, 26: 6, 27: 3, 28: 5, 29: 6, 30: 5, 31: 6, 32: 6,
@@ -66,12 +66,14 @@ def _unpack_operator(voice_bytes: bytes, dx7_op: int) -> dict:
     """
     base = (6 - dx7_op) * 17
     b = voice_bytes[base:base + 17]
-    mode   = b[15] & 0x01          # 0 = ratio, 1 = fixed frequency
-    coarse = (b[15] >> 1) & 0x1F  # 0-31
+    mode   = (b[15] >> 5) & 0x01   # Bit 5: 0 = ratio, 1 = fixed frequency
+    coarse = b[15] & 0x1F          # Bits 0-4: 0-31
     fine   = b[16] & 0x7F          # 0-99
     if mode == 0:
-        # Ratio mode: coarse 0 = 0.5×, else coarse + fine/100
-        ratio     = 0.5 if coarse == 0 else float(coarse) + fine / 100.0
+        # Ratio mode: fine is multiplicative — ratio = coarse_mult * (1 + fine/100).
+        # Matches Dexed osc_freq(): logfreq += coarsemul[coarse] + 24204406*log(1+fine/100)
+        coarse_mult = 0.5 if coarse == 0 else float(coarse)
+        ratio     = round(coarse_mult * (1.0 + fine / 100.0), 4)
         fixed     = False
         fixed_freq = None
     else:
@@ -84,13 +86,19 @@ def _unpack_operator(voice_bytes: bytes, dx7_op: int) -> dict:
         ratio      = 1.0   # ignored when fixed=True
         fixed      = True
         fixed_freq = round((10.0 ** (coarse & 3)) * (10.0 ** (fine / 100.0)), 4)
+    detune_raw = (b[12] >> 3) & 0x0F  # 0-14, center=7
+    detune     = detune_raw - 7         # signed: -7 to +7, 0 = no change
     return {
         "eg_r":         [b[0], b[1], b[2], b[3]],
         "eg_l":         [b[4], b[5], b[6], b[7]],
         "output_level": b[14] & 0x7F,
+        "vel_sens":     (b[13] >> 2) & 0x07,  # 0-7, DX7 key velocity sensitivity
+        "detune":       detune,                # -7 to +7, 0 = no detune
         "ratio":        ratio,
         "fixed":        fixed,
         "fixed_freq":   fixed_freq,
+        "osc_coarse":   coarse,                # raw DX7 coarse integer (0-31)
+        "osc_fine":     fine,                  # raw DX7 fine integer (0-99)
     }
 
 
@@ -131,9 +139,14 @@ def parse_syx(path: str) -> list:
 
 
 # ---------------------------------------------------------------------------
-def _group_attrs(voice: dict, enabled: bool = True) -> dict:
+def _group_attrs(voice: dict, enabled: bool = True, flat_eg: bool = False) -> dict:
     """
     Build the flat attribute dict for a <group> element from a voice dict.
+    If flat_eg=True, all operator EGs are replaced with an instant attack /
+    hold-at-peak / instant release envelope (R1=99,L1=99 R2=99,L2=99
+    R3=0,L3=99 R4=99,L4=0), matching the convention used by dexed_render.py
+    and ds_fm_engine.py so the three engines are compared under identical EG
+    conditions.
     """
     alg       = voice["algorithm"]
     fb_op     = ALG_FEEDBACK_OP.get(alg, 6)
@@ -167,18 +180,30 @@ def _group_attrs(voice: dict, enabled: bool = True) -> dict:
         else:
             attrs[f"{p}Ratio"] = str(ratio)
         attrs[f"{p}Level"]  = str(level)
-        # Emit native DX7 rate/level EG — no lossy ADSR approximation.
         attrs[f"{p}EgType"]  = "dx7"
-        attrs[f"{p}EgRate1"] = str(r[0])
-        attrs[f"{p}EgRate2"] = str(r[1])
-        attrs[f"{p}EgRate3"] = str(r[2])
-        attrs[f"{p}EgRate4"] = str(r[3])
-        attrs[f"{p}EgLevel1"] = str(l[0])
-        attrs[f"{p}EgLevel2"] = str(l[1])
-        attrs[f"{p}EgLevel3"] = str(l[2])
-        attrs[f"{p}EgLevel4"] = str(l[3])
+        if flat_eg:
+            # Instant attack to peak, hold forever, instant release —
+            # matches dexed_render.py convention for fair FM-only comparison.
+            attrs[f"{p}EgRate1"]  = "99"; attrs[f"{p}EgLevel1"] = "99"
+            attrs[f"{p}EgRate2"]  = "99"; attrs[f"{p}EgLevel2"] = "99"
+            attrs[f"{p}EgRate3"]  = "0";  attrs[f"{p}EgLevel3"] = "99"
+            attrs[f"{p}EgRate4"]  = "99"; attrs[f"{p}EgLevel4"] = "0"
+        else:
+            # Emit native DX7 rate/level EG — no lossy ADSR approximation.
+            attrs[f"{p}EgRate1"] = str(r[0])
+            attrs[f"{p}EgRate2"] = str(r[1])
+            attrs[f"{p}EgRate3"] = str(r[2])
+            attrs[f"{p}EgRate4"] = str(r[3])
+            attrs[f"{p}EgLevel1"] = str(l[0])
+            attrs[f"{p}EgLevel2"] = str(l[1])
+            attrs[f"{p}EgLevel3"] = str(l[2])
+            attrs[f"{p}EgLevel4"] = str(l[3])
         if n == fb_op:
             attrs[f"{p}Feedback"] = str(fb_amount)
+        if op.get("vel_sens", 0) > 0:
+            attrs[f"{p}VelocitySensitivity"] = str(op["vel_sens"])
+        if op.get("detune", 0) != 0:
+            attrs[f"{p}Detune"] = str(op["detune"])
 
     return attrs
 
@@ -224,30 +249,85 @@ def build_dspreset(voices: list) -> str:
     return "\n".join(lines[1:])  # strip the <?xml …?> declaration line
 
 
+def build_single_dspreset(voice: dict, flat_eg: bool = False) -> str:
+    """Build a minimal .dspreset XML string for one voice (no dropdown menu).
+
+    flat_eg=True replaces all operator EGs with an instant-attack / hold /
+    instant-release envelope for fair FM-engine-only comparison.
+    """
+    root = ET.Element("DecentSampler", minVersion="1.0.0")
+
+    # ── Groups ──────────────────────────────────────────────────────────
+    groups_el = ET.SubElement(root, "groups")
+    group = ET.SubElement(groups_el, "group", **_group_attrs(voice, enabled=True, flat_eg=flat_eg))
+    ET.SubElement(group, "oscillator",
+                  waveform="fm6op",
+                  loNote="0", hiNote="127", rootNote="60",
+                  loVel="0",  hiVel="127", volume="1.0")
+
+    # ── Pretty-print ────────────────────────────────────────────────────
+    raw   = ET.tostring(root, encoding="unicode")
+    dom   = minidom.parseString(raw)
+    lines = dom.toprettyxml(indent="  ").splitlines()
+    return "\n".join(lines[1:])
+
+
+def _safe_filename(name: str, index: int) -> str:
+    """Convert a patch name to a safe filename: '<index+1:02d>_<name>.dspreset'."""
+    safe = "".join(c if c.isalnum() or c in " _-" else "_" for c in name).strip()
+    safe = safe.replace(" ", "_")
+    return f"{index + 1:02d}_{safe}.dspreset"
+
+
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 def main():
-    if len(sys.argv) < 2:
-        print(__doc__)
-        sys.exit(1)
+    import argparse
 
-    syx_path = sys.argv[1]
-    out_path = sys.argv[2] if len(sys.argv) >= 3 else (
-        os.path.splitext(syx_path)[0] + ".dspreset"
+    parser = argparse.ArgumentParser(
+        description="Convert a DX7 SysEx bulk dump (.syx) to DecentSampler preset(s).",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=__doc__,
     )
+    parser.add_argument("syx", help="Input .syx file")
+    parser.add_argument("output", nargs="?",
+                        help="Output .dspreset file (combined mode, default: <syx>.dspreset)")
+    parser.add_argument("--split", action="store_true",
+                        help="Write one .dspreset per patch into a directory instead of "
+                             "one combined file with a dropdown menu")
+    parser.add_argument("--split-dir",
+                        help="Directory for split output (default: <syx_stem>_split/)")
+    args = parser.parse_args()
 
-    voices = parse_syx(syx_path)
+    voices = parse_syx(args.syx)
     if not voices:
-        print(f"Error: no 32-voice bulk dumps found in {syx_path!r}.")
+        print(f"Error: no 32-voice bulk dumps found in {args.syx!r}.")
         print("Only 32-voice bulk-dump format (F0 43 xx 09 …) is supported.")
         sys.exit(1)
 
-    xml_str = build_dspreset(voices)
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(xml_str)
-
-    print(f"Converted {len(voices)} voice(s)  →  {out_path}")
+    if args.split:
+        # ── Split mode: one file per patch ──────────────────────────────
+        stem    = os.path.splitext(os.path.basename(args.syx))[0]
+        out_dir = args.split_dir or os.path.join(
+            os.path.dirname(os.path.abspath(args.syx)), stem + "_split"
+        )
+        os.makedirs(out_dir, exist_ok=True)
+        for idx, voice in enumerate(voices):
+            fname    = _safe_filename(voice["name"], idx)
+            out_path = os.path.join(out_dir, fname)
+            xml_str  = build_single_dspreset(voice)
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(xml_str)
+            print(f"  [{idx + 1:2d}/{ len(voices)}] {voice['name']:<20s} → {fname}")
+        print(f"\nWrote {len(voices)} presets to: {out_dir}")
+    else:
+        # ── Combined mode: all patches in one file with dropdown ─────────
+        out_path = args.output or (os.path.splitext(args.syx)[0] + ".dspreset")
+        xml_str  = build_dspreset(voices)
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.write(xml_str)
+        print(f"Converted {len(voices)} voice(s)  →  {out_path}")
 
 
 if __name__ == "__main__":
