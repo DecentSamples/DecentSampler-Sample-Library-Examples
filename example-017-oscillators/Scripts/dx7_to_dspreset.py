@@ -158,6 +158,7 @@ def _group_attrs(voice: dict, enabled: bool = True, flat_eg: bool = False) -> di
 
     attrs = {
         "name":    voice["name"],
+        "tags":    "fm-preset",
         "enabled": "true" if enabled else "false",
         "volume":  "0.5",
         "attack":  "0.001",
@@ -210,7 +211,7 @@ def _group_attrs(voice: dict, enabled: bool = True, flat_eg: bool = False) -> di
 
 def build_dspreset(voices: list) -> str:
     """Build a .dspreset XML string for the given list of voice dicts."""
-    root = ET.Element("DecentSampler", minVersion="1.0.0")
+    root = ET.Element("DecentSampler", minVersion="1.22.3")
 
     # ── UI ──────────────────────────────────────────────────────────────
     ui  = ET.SubElement(root, "ui", width="812", height="375",
@@ -225,12 +226,16 @@ def build_dspreset(voices: list) -> str:
 
     for idx, voice in enumerate(voices):
         opt = ET.SubElement(menu, "option", name=voice["name"])
-        for j in range(len(voices)):
-            ET.SubElement(opt, "binding",
-                          type="general", level="group", position=str(j),
-                          parameter="ENABLED",
-                          translation="fixed_value",
-                          translationValue="true" if j == idx else "false")
+        ET.SubElement(opt, "binding",
+                      type="general", level="group", tags="fm-preset",
+                      parameter="ENABLED",
+                      translation="fixed_value",
+                      translationValue="false")
+        ET.SubElement(opt, "binding",
+                      type="general", level="group", position=str(idx),
+                      parameter="ENABLED",
+                      translation="fixed_value",
+                      translationValue="true")
 
     # ── Groups ──────────────────────────────────────────────────────────
     groups_el = ET.SubElement(root, "groups")
@@ -255,7 +260,7 @@ def build_single_dspreset(voice: dict, flat_eg: bool = False) -> str:
     flat_eg=True replaces all operator EGs with an instant-attack / hold /
     instant-release envelope for fair FM-engine-only comparison.
     """
-    root = ET.Element("DecentSampler", minVersion="1.0.0")
+    root = ET.Element("DecentSampler", minVersion="1.22.3")
 
     # ── Groups ──────────────────────────────────────────────────────────
     groups_el = ET.SubElement(root, "groups")
