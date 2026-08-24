@@ -66,8 +66,8 @@ def _unpack_operator(voice_bytes: bytes, dx7_op: int) -> dict:
     """
     base = (6 - dx7_op) * 17
     b = voice_bytes[base:base + 17]
-    mode   = (b[15] >> 5) & 0x01   # Bit 5: 0 = ratio, 1 = fixed frequency
-    coarse = b[15] & 0x1F          # Bits 0-4: 0-31
+    mode   = b[15] & 0x01           # Bit 0: 0 = ratio, 1 = fixed frequency
+    coarse = (b[15] >> 1) & 0x1F   # Bits 1-5: 0-31
     fine   = b[16] & 0x7F          # 0-99
     if mode == 0:
         # Ratio mode: fine is multiplicative — ratio = coarse_mult * (1 + fine/100).
