@@ -117,10 +117,19 @@ def _unpack_voice(voice_bytes: bytes) -> dict:
     }
 
 
+def _checksum(data: bytes) -> int:
+    """Yamaha bulk-dump checksum: two's complement of the low 7 bits of the sum."""
+    return ((~(sum(data) & 0x7F)) + 1) & 0x7F
+
+
 def parse_syx(path: str) -> list:
     """
     Return a list of voice dicts from a .syx file.
     Scans for all F0 43 xx 09 bulk-dump headers in the file.
+
+    A bank whose checksum or F7 terminator does not match is skipped: a corrupt
+    bank decodes into 32 plausible-looking but wrong voices otherwise, which is
+    far more annoying to diagnose than being told the file is bad.
     """
     data = open(path, "rb").read()
     voices = []
@@ -129,9 +138,19 @@ def parse_syx(path: str) -> list:
         if (data[offset] == 0xF0
                 and data[offset + 1] == 0x43
                 and data[offset + 3] == 0x09):
-            for i in range(32):
-                start = offset + 6 + i * 128
-                voices.append(_unpack_voice(data[start:start + 128]))
+            payload = data[offset + 6:offset + 6 + 4096]
+            checksum_ok = _checksum(payload) == data[offset + 6 + 4096]
+            terminator_ok = data[offset + 6 + 4096 + 1] == 0xF7
+
+            if checksum_ok and terminator_ok:
+                for i in range(32):
+                    start = offset + 6 + i * 128
+                    voices.append(_unpack_voice(data[start:start + 128]))
+            else:
+                reason = "checksum" if not checksum_ok else "terminator"
+                print(f"Warning: skipping bank at offset {offset} (bad {reason}).",
+                      file=sys.stderr)
+
             offset += 4104
         else:
             offset += 1
