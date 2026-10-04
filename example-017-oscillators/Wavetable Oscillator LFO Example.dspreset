@@ -19,10 +19,10 @@
 
       <label x="20" y="10" width="560" height="20"
              text="Wavetable Oscillator &#8212; LFO Position Modulation"
-             fontSize="15" textColor="#FFFFFFFF"/>
+             textSize="15" textColor="#FFFFFFFF"/>
       <label x="20" y="32" width="560" height="14"
              text="LFO sweeps wavetable frames &#183; center + rate + depth controls"
-             fontSize="10" textColor="#FFAAAACC"/>
+             textSize="10" textColor="#FFAAAACC"/>
 
       <!-- LFO controls -->
       <labeled-knob x="20"  y="55" width="80" height="85" label="Center"

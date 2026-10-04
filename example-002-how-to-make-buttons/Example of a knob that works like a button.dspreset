@@ -13,11 +13,11 @@
           <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="true" />
           <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="false" />
         </state>
-        <state name="French &and; English">
-          <binding type="general" level="group" position="=" parameter="ENABLED" translation="fixed_value" translationValue="true" />
+        <state name="French &amp; English">
+          <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="true" />
           <binding type="general" level="group" position="1" parameter="ENABLED" translation="fixed_value" translationValue="true" />
         </state>
-      </button>
+      </control>
     </tab>
   </ui>
   <groups pitchKeyTrack="0" seqMode="round_robin" seqLength="4">

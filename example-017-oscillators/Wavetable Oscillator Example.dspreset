@@ -4,10 +4,10 @@
   <ui height="375" bgColor="#FF1A1A2E">
     <tab>
       
-      <label x="20" y="10" width="500" height="20" text="Wavetable Oscillator &#8212; Default Shapes Test" fontSize="15" textColor="#FFFFFFFF"/>
-      <label x="20" y="32" width="560" height="14" text="Serum-format wavetables &#183; band-limited mip-maps &#183; frame interpolation toggle" fontSize="10" textColor="#FFAAAACC"/>
+      <label x="20" y="10" width="500" height="20" text="Wavetable Oscillator &#8212; Default Shapes Test" textSize="15" textColor="#FFFFFFFF"/>
+      <label x="20" y="32" width="560" height="14" text="Serum-format wavetables &#183; band-limited mip-maps &#183; frame interpolation toggle" textSize="10" textColor="#FFAAAACC"/>
       
-      <label x="20" y="52" width="200" height="14" text="Frame Interpolation" fontSize="11" textColor="#FFAAAACC"/>
+      <label x="20" y="52" width="200" height="14" text="Frame Interpolation" textSize="11" textColor="#FFAAAACC"/>
       <button x="20" y="68" width="200" height="26" style="text" value="0">
         <state name="Off (snap to frame)">
           <binding type="general" level="group" tags="wt" parameter="OSCILLATOR_WAVETABLE_FRAME_INTERPOLATION" translation="fixed_value" translationValue="false"/>

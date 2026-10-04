@@ -27,8 +27,7 @@
       </labeled-knob>
       <labeled-knob x="725" y="75" width="90" textSize="16" textColor="AA000000" 
                     trackForegroundColor="CC000000" trackBackgroundColor="66999999" 
-                    label="Reverb" type="percent" minValue="0" maxValue="100" 
-                    textColor="FF000000" value="50">
+                    label="Reverb" type="percent" minValue="0" maxValue="100" value="50">
         <binding type="effect" level="instrument" position="1" 
                  parameter="FX_REVERB_WET_LEVEL" translation="linear" 
                  translationOutputMin="0" translationOutputMax="1" />
