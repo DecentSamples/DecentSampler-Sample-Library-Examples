@@ -81,9 +81,9 @@
       <rectangle x="373" y="202" width="6" height="3" fillColor="#FFd8c4a8"/>
       
       <!-- Frame border - ornate gold -->
-      <rectangle x="243" y="3" width="254" height="202" fillColor="none" borderColor="#FFe6c365" borderThickness="3"/>
-      <rectangle x="238" y="0" width="264" height="208" fillColor="none" borderColor="#FFd4a850" borderThickness="5"/>
-      <rectangle x="233" y="-3" width="274" height="214" fillColor="none" borderColor="#FF8b6f3a" borderThickness="3"/>
+      <rectangle x="243" y="3" width="254" height="202" fillColor="00000000" borderColor="#FFe6c365" borderThickness="3"/>
+      <rectangle x="238" y="0" width="264" height="208" fillColor="00000000" borderColor="#FFd4a850" borderThickness="5"/>
+      <rectangle x="233" y="-3" width="274" height="214" fillColor="00000000" borderColor="#FF8b6f3a" borderThickness="3"/>
       
       <label x="20" y="10" width="200" height="25" text="Mona Lisa" textSize="16" textColor="#FFe6c365" hAlign="left" vAlign="center"/>
       <label x="20" y="35" width="200" height="30" text="Rectangle Edition" textSize="12" textColor="#FFd4a850" hAlign="left" vAlign="center"/>

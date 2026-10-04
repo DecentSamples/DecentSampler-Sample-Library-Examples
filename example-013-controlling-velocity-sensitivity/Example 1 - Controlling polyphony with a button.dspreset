@@ -6,10 +6,10 @@
       <label text="Polyphony" x="330" y="30" width="120" height="30" textSize="24"/>
       <button x="350" y="70" width="120" height="40" style="text" value="0">
         <state name="Mono">
-          <binding type="general" level="tag" tags="all" parameter="POLYPHONY" translation="fixed_value" translationValue="1"/>
+          <binding type="general" level="tag" identifier="all" parameter="TAG_POLYPHONY" translation="fixed_value" translationValue="1"/>
         </state>
         <state name="Poly">
-          <binding type="general" level="tag" tags="all" parameter="POLYPHONY" translation="fixed_value" translationValue="6"/>
+          <binding type="general" level="tag" identifier="all" parameter="TAG_POLYPHONY" translation="fixed_value" translationValue="6"/>
         </state>
       </button>
     </tab>

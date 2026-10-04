@@ -21,18 +21,17 @@
       <!-- position 0 -->
       <label x="20" y="10" width="560" height="28"
              text="FM6 – DX7 Classics"
-             textColor="FFD8D8FF" fontSize="22"/>
+             textColor="FFD8D8FF" textSize="22"/>
 
       <!-- ── Sound selector ────────────────────────────────────────── -->
       <!-- position 1 -->
       <label x="20" y="47" width="60" height="15"
-             text="Sound" textColor="FF8080AA" fontSize="11"/>
+             text="Sound" textColor="FF8080AA" textSize="11"/>
 
       <!-- position 2 -->
       <menu x="20" y="63" width="240" height="26"
             parameterName="Sound" value="1"
-            textColor="FFFFFFFF" backgroundColour="FF141430"
-            outlineColor="FF5555AA">
+            textColor="FFFFFFFF" backgroundColor="FF141430">
 
         <option name="E Piano">
           <binding type="general" level="group" position="0" parameter="ENABLED" translation="fixed_value" translationValue="true"/>
@@ -210,11 +209,11 @@
       <!-- position 3 -->
       <label x="20" y="100" width="780" height="18"
              text="Bright, bell-like percussive tone with fast modulator decay. Sustain a note for a long, warm tail."
-             textColor="FF9090BE" fontSize="11"/>
+             textColor="FF9090BE" textSize="11"/>
       <!-- position 4 -->
       <label x="20" y="120" width="780" height="15"
              text="Algorithm 5 · Three 2-op carrier pairs · Carriers: Op1 Op3 Op5 · Modulators: Op2 Op4 (ratio 14×)  Op6 (ratio 7×, feedback)"
-             textColor="FF565680" fontSize="10"/>
+             textColor="FF565680" textSize="10"/>
 
     </tab>
   </ui>

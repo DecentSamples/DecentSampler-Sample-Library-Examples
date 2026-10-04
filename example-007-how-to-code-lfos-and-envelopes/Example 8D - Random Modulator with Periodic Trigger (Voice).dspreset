@@ -58,5 +58,4 @@
       <binding type="effect" level="group" groupIndex="0" effectIndex="0" parameter="FX_FILTER_FREQUENCY" modBehavior="add" translation="linear" translationOutputMin="200" translationOutputMax="2000.0"  />
     </random>
   </modulators>
-  </midi>
 </DecentSampler>

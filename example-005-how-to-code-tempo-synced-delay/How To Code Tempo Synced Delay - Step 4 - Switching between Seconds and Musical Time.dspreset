@@ -9,14 +9,14 @@
           <binding type="effect" level="instrument" position="0" parameter="FX_DELAY_TIME_FORMAT" translation="fixed_value" translationValue="musical_time" />
           <binding type="control" level="ui" position="2" parameter="VALUE_TYPE" translation="fixed_value" translationValue="musical_time" />
           <binding type="control" level="ui" position="2" parameter="VALUE" translation="fixed_value" translationValue="10" />
-        </option>
+        </state>
         <state name="Off">
           <binding type="effect" level="instrument" position="0" parameter="FX_DELAY_TIME_FORMAT" translation="fixed_value" translationValue="seconds" />
           <binding type="control" level="ui" position="2" parameter="VALUE_TYPE" translation="fixed_value" translationValue="float" />
           <binding type="control" level="ui" position="2" parameter="VALUE" translation="fixed_value" translationValue="0.25" />
           <binding type="control" level="ui" position="2" parameter="MIN_VALUE" translation="fixed_value" translationValue="0" />
           <binding type="control" level="ui" position="2" parameter="MAX_VALUE" translation="fixed_value" translationValue="5" />
-        </option>
+        </state>
       </button>
       <labeled-knob x="180" y="40" label="Delay Time" valueType="musical_time" value="10">
         <binding type="effect" level="instrument" position="0" parameter="FX_DELAY_TIME"/>

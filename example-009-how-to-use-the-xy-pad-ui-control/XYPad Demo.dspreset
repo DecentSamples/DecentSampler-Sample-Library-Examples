@@ -3,7 +3,7 @@
 <DecentSampler minVersion="1.11.12">
   <ui bgImage="background.png" width="812" height="375" layoutMode="relative" bgMode="top_left">
     <tab name="main">
-      <xyPad x="10" y="10" width="300" height="195" parameterName="Pad" xValue="0.5576778054237366" yValue="0.4821614623069763" bgColor="77FFCC00" markerFillColor="FFFFFFFF" outlineColor="77FFFFFFF" tooltip="XY Pad tooltip">
+      <xyPad x="10" y="10" width="300" height="195" parameterName="Pad" xValue="0.5576778054237366" yValue="0.4821614623069763" bgColor="77FFCC00" markerFillColor="FFFFFFFF" outlineColor="77FFFFFF" tooltip="XY Pad tooltip">
         <x>
           <binding type="amp" level="group" groupIndex="0" parameter="AMP_VOLUME" translation="linear" translationOutputMin="0" translationOutputMax="1"/>
           <binding type="amp" level="group" groupIndex="1" parameter="AMP_VOLUME" translation="linear" translationOutputMin="1" translationOutputMax="0"/>
@@ -28,7 +28,7 @@
     <keyboard/>
   </ui>
   <groups attack="0.000" decay="25" sustain="1.0" release="0.430" volume="1.0">
-    <group ampVelTrack="0.0" groupTuning="" modVolume="0.5576778054237366">
+    <group ampVelTrack="0.0" modVolume="0.5576778054237366">
       <sample path="Samples/Volca Keys Poly-V127-36-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
       <sample path="Samples/Volca Keys Poly-V127-48-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
       <sample path="Samples/Volca Keys Poly-V127-60-C3.wav" loNote="49" hiNote="60" rootNote="60"/>
@@ -38,7 +38,7 @@
       <sample path="Samples/Volca Keys Poly-V127-108-C7.wav" loNote="97" hiNote="108" rootNote="108"/>
       <effects/>
     </group>
-    <group ampVelTrack="0.0" groupTuning="" modVolume="0.4423221945762634">
+    <group ampVelTrack="0.0" modVolume="0.4423221945762634">
       <sample path="Samples/Volca Keys Square-V127-C1.wav" loNote="24" hiNote="36" rootNote="36"/>
       <sample path="Samples/Volca Keys Square-V127-C2.wav" loNote="37" hiNote="48" rootNote="48"/>
       <sample path="Samples/Volca Keys Square-V127-C3.wav" loNote="49" hiNote="60" rootNote="60"/>

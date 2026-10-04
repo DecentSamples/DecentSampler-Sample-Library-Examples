@@ -238,7 +238,7 @@ def build_dspreset(voices: list) -> str:
     tab = ET.SubElement(ui, "tab", name="main")
     ET.SubElement(tab, "label",
                   x="16", y="8", width="200", height="26",
-                  text="Patch", textColor="#FFFFFFFF", fontSize="16")
+                  text="Patch", textColor="#FFFFFFFF", textSize="16")
     menu = ET.SubElement(tab, "menu",
                          x="16", y="38", width="500", height="30",
                          value="1", style="classic")

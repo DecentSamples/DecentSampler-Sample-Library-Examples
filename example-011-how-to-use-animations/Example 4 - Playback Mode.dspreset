@@ -3,7 +3,7 @@
 <DecentSampler>
   <ui bgColor="FFADD8E6">
     <tab>
-      <multiFrameImage x="450" y="80" width="64" height="64" path="Images/AnimationDemo128.png" numFrames="31" sourceFormat="vertical_image_strip"frameRate="24" playbackMode="forward_loop"/>
+      <multiFrameImage x="450" y="80" width="64" height="64" path="Images/AnimationDemo128.png" numFrames="31" sourceFormat="vertical_image_strip" frameRate="24" playbackMode="forward_loop"/>
       <label x="275" y="50" height="30" text="Playback Mode" textColor="FF000000" textSize="16" />
       <menu x="280" y="80" width="100" height="30">
         <option name="Forward Loop">

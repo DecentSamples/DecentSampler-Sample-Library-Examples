@@ -17,11 +17,11 @@
       <!-- Title label -->
       <label x="10" y="10" width="400" height="20"
              text="FM 6-Operator Oscillator Test"
-             textColor="FFE0E0FF" fontSize="16"/>
+             textColor="FFE0E0FF" textSize="16"/>
 
       <!-- ── Algorithm selector ─────────────────────────────── -->
       <label x="10" y="40" width="80" height="16"
-             text="Algorithm" textColor="FFB0B0D0" fontSize="11"/>
+             text="Algorithm" textColor="FFB0B0D0" textSize="11"/>
       <menu x="10" y="58" width="120" height="22"
             parameterName="FM Algorithm" value="1">
         <option name="Alg 1 – Single chain">
@@ -68,7 +68,7 @@
 
       <!-- ── Modulator level knobs ──────────────────────────── -->
       <label x="160" y="40" width="80" height="16"
-             text="Op 2 Level" textColor="FFB0B0D0" fontSize="11"/>
+             text="Op 2 Level" textColor="FFB0B0D0" textSize="11"/>
       <labeled-knob x="160" y="55" width="70" height="70"
                     label="Op 2 Lvl" type="float"
                     minValue="0" maxValue="1" value="0.7"
@@ -80,7 +80,7 @@
       </labeled-knob>
 
       <label x="250" y="40" width="80" height="16"
-             text="Op 4 Level" textColor="FFB0B0D0" fontSize="11"/>
+             text="Op 4 Level" textColor="FFB0B0D0" textSize="11"/>
       <labeled-knob x="250" y="55" width="70" height="70"
                     label="Op 4 Lvl" type="float"
                     minValue="0" maxValue="1" value="0.5"
@@ -92,7 +92,7 @@
       </labeled-knob>
 
       <label x="340" y="40" width="80" height="16"
-             text="Op 6 Level" textColor="FFB0B0D0" fontSize="11"/>
+             text="Op 6 Level" textColor="FFB0B0D0" textSize="11"/>
       <labeled-knob x="340" y="55" width="70" height="70"
                     label="Op 6 Lvl" type="float"
                     minValue="0" maxValue="1" value="0.4"
@@ -105,7 +105,7 @@
 
       <!-- ── Feedback knob ─────────────────────────────────── -->
       <label x="430" y="40" width="80" height="16"
-             text="Feedback" textColor="FFB0B0D0" fontSize="11"/>
+             text="Feedback" textColor="FFB0B0D0" textSize="11"/>
       <labeled-knob x="430" y="55" width="70" height="70"
                     label="Feedback" type="float"
                     minValue="0" maxValue="1" value="0.0"
@@ -118,7 +118,7 @@
 
       <!-- ── Op 2 ratio knob ───────────────────────────────── -->
       <label x="520" y="40" width="80" height="16"
-             text="Op 2 Ratio" textColor="FFB0B0D0" fontSize="11"/>
+             text="Op 2 Ratio" textColor="FFB0B0D0" textSize="11"/>
       <labeled-knob x="520" y="55" width="70" height="70"
                     label="Op 2 Ratio" type="float"
                     minValue="0.5" maxValue="8" value="2.0"
@@ -131,7 +131,7 @@
 
       <!-- ── ADSR ──────────────────────────────────────────── -->
       <label x="10" y="150" width="400" height="16"
-             text="Voice Envelope" textColor="FFB0B0D0" fontSize="11"/>
+             text="Voice Envelope" textColor="FFB0B0D0" textSize="11"/>
 
       <labeled-knob x="10"  y="168" width="60" height="60"
                     label="Attack" type="float"
@@ -161,10 +161,10 @@
       <!-- ── Info label ─────────────────────────────────────── -->
       <label x="10" y="240" width="790" height="15"
              text="Algorithm 5 = 3 independent 2-op pairs (good for additive-FM blend).  Algorithm 32 = all carriers + op1 self-feedback (bright organ)."
-             textColor="FF8080A0" fontSize="10"/>
+             textColor="FF8080A0" textSize="10"/>
       <label x="10" y="257" width="790" height="15"
              text="Op levels 1,3,5 are fixed carriers (level=1). Knobs above control modulator ops 2,4,6."
-             textColor="FF8080A0" fontSize="10"/>
+             textColor="FF8080A0" textSize="10"/>
 
     </tab>
   </ui>
